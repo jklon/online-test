@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="stylesheets/attempt.css" />
+<div id="test-container">
+  <div class="row">
+
+    <div class="col-xs-12">
+      <p><b>Question: </b>{{$ctrl.fetched_questions[$ctrl.current_question_index].question_text}}</p>
+
+      <div class="radio" ng-repeat="answer in $ctrl.fetched_questions[$ctrl.current_question_index].answers">
+        <label ng-click="$ctrl.select_answer($ctrl.fetched_questions[$ctrl.current_question_index].short_choice_question_id, $index)"><input type="radio" name="optradio">{{answer.answer_text}}</label>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <br><br><br><br><br><br><br><br><br><br>
+  <pre>{{$ctrl.diagnostic_test_data | json}}</pre>
