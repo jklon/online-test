@@ -57,4 +57,31 @@
     left: 200px;
   }
 }
+
+#sidebar-question-index{
+  list-style-type: none;
+}
+#sidebar-question-index {
+  text-align: center;
+  color:#b3b3b3;
+}
+#sidebar-question-index span{
+  float:left;
+  width:25px;
+  height: 25px;
+  background-color: white;
+  text-align: center;
+  margin:4px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+#sidebar-question-index span.attempted{
+  background-color: #c6fbaa;
+}
+#sidebar-question-index span.attempting{
+  background-color: #6c6c6c;
+}
+#sidebar-question-index p {
+  color: white
+}
 /*CSS FOR NAVBAR WITH SLIDER FROM SIDE ENDS HERE*/

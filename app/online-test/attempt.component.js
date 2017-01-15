@@ -5,14 +5,25 @@ angular.
   module('onlineTest').
   component('attempt', {
     templateUrl: 'online-test/attempt.template.html',
-    controller: ['DiagnosticTest',
-      function AttemptController(DiagnosticTest) {
+    controller: ['DiagnosticTest', '$scope',
+      function AttemptController(DiagnosticTest, $scope) {
         console.log("This is AttemptController");
         console.log(DiagnosticTest.getAllData())
         var self = this;
         self.current_question_index = 0;
 
+
         self.change_question = function(question_index){
+          try {
+            if (typeof question_index == "string"){
+              question_index = parseInt(question_index)
+              console.log(question_index)
+            }
+          } catch(err){
+            console.log(err)
+            return
+          }
+
           if(question_index < self.fetched_questions.length){
             self.current_question_index = question_index
             self.reset_timer()
@@ -63,6 +74,18 @@ angular.
             }
           });
           console.log(self.fetched_questions)
+          $(document).ready(function(){
+            var html = "";
+            for (var i=0; i<self.fetched_questions.length;i++){
+              html += '<span>'+(i+1)+'</span>'
+            }
+            $("#sidebar-question-index").append(html)
+          })
+          $("#sidebar-question-index span").on("click",function(event){
+            $scope.$apply(function(){
+              self.change_question(parseInt($(event.currentTarget).html()) - 1)
+            })
+          })
         }
 
 
@@ -81,7 +104,6 @@ angular.
             self.change_question(self.get_displayed_question_index() + 1);
           }
         }
-
 
       }
     ]

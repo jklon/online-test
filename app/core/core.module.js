@@ -1,4 +1,4 @@
 'use strict';
 
-angular.module('core', ['core.phone', 'core.diagnostic-test']);
+angular.module('core', ['core.diagnostic-test']);
 

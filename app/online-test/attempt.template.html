@@ -6,7 +6,7 @@
       <p><b>Question: </b>{{$ctrl.fetched_questions[$ctrl.current_question_index].question_text}}</p>
 
       <div class="radio" ng-repeat="answer in $ctrl.fetched_questions[$ctrl.current_question_index].answers">
-        <label ng-click="$ctrl.select_answer($ctrl.fetched_questions[$ctrl.current_question_index].short_choice_question_id, $index)"><input type="radio" name="optradio">{{answer.answer_text}}</label>
+        <label ng-click="$ctrl.select_answer($ctrl.fetched_questions[$ctrl.current_question_index].short_choice_question_id, $index)"><input type="radio" name="optradio" value={{answer.short_choice_answer_id}} ng-model="$ctrl.diagnostic_test_data.short_choice_questions[$ctrl.fetched_questions[$ctrl.current_question_index].short_choice_question_id].answer_selected">{{answer.answer_text}}</label>
       </div>
 
     </div>
