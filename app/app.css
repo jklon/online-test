@@ -1,78 +1,61 @@
-body {
-  padding: 20px;
+#test-container{
+  padding: 15px
 }
 
-h1 {
-  border-bottom: 1px solid gray;
+#main-body{
+  margin-top: 69px;
 }
 
-/* View: Phone list */
-.phones {
-  list-style: none;
+@media screen and (min-width: 751px) {
+    #main-body {
+      margin-left: 200px
+    }
 }
 
-.phones li {
-  clear: both;
-  height: 115px;
-  padding-top: 15px;
+/*CSS FOR NAV BAR WITH SLIDER FROM SIDE*/
+#sidebar-wrapper {
+  top: 50px;
+  left: -200px;
+  width: 200px;
+  background-color: #b3b3b3;
+  color: white;
+  position: fixed;
+  height: 100%;
+  z-index: 1;
 }
-
-.thumb {
-  float: left;
-  height: 100px;
-  margin: -0.5em 1em 1.5em 0;
-  padding-bottom: 1em;
-  width: 100px;
-}
-
-/* View: Phone detail */
-.phone {
-  background-color: white;
-  border: 1px solid black;
-  float: left;
-  height: 400px;
-  margin-bottom: 2em;
-  margin-right: 3em;
-  padding: 2em;
-  width: 400px;
-}
-
-.phone-thumbs {
-  list-style: none;
-  margin: 0;
-}
-
-.phone-thumbs img {
-  height: 100px;
-  padding: 1em;
-  width: 100px;
-}
-
-.phone-thumbs li {
-  background-color: white;
-  border: 1px solid black;
-  display: inline-block;
-  margin: 1em;
-}
-
-.specs {
-  clear: both;
-  list-style: none;
+.sidebar-nav {
+  position: absolute;
+  top: 0;
   margin: 0;
   padding: 0;
-}
-
-.specs dt {
-  font-weight: bold;
-}
-
-.specs > li {
-  display: inline-block;
-  vertical-align: top;
   width: 200px;
+  list-style: none;
 }
-
-.specs > li > span {
-  font-size: 1.2em;
-  font-weight: bold;
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 50px;
 }
+.sidebar-nav li a {
+  color: white;
+  display: block;
+  text-decoration: none;
+}
+.sidebar-nav li a:hover {
+  background: rgba(255,255,255,0.25);
+  color: white;
+  text-decoration: none;
+}
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+  text-decoration: none;
+}
+#sidebar-wrapper.sidebar-toggle {
+  transition: all 0.3s ease-out;
+  margin-left: -200px;
+}
+@media (min-width: 768px) {
+  #sidebar-wrapper.sidebar-toggle {
+    transition: 0s;
+    left: 200px;
+  }
+}
+/*CSS FOR NAVBAR WITH SLIDER FROM SIDE ENDS HERE*/

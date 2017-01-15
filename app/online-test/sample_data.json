@@ -1,0 +1,320 @@
+{
+  "user": {
+    "first_name": "Shaunak",
+    "last_name": "Das",
+    "email": "shaunakdas2020@gmail.com",
+    "number": "9740644522"
+  },
+  "diagnostic_test": {
+    "id": "2",
+    "short_choice_questions": {
+      "23573": {
+        "question_text": "Which of the following is largest 100506, 250105, 1056, 2496, 255006, 15560.",
+        "index": "0",
+        "time_taken": "6.234987",
+        "score": "0",
+        "attempt": "2",
+        "answer_selected": "88860",
+        "selected_answers": {
+          "88860": {
+            "index": "0",
+            "time_taken": "5.99962",
+            "text": "1056"
+          }
+        }
+      },
+      "23574": {
+        "question_text": "In Indian system 200405610 can be written as Twenty Crores _ Lakhs five thousand six hundred and ten. What will come in the blank?",
+        "index": "1",
+        "time_taken": "0.584688",
+        "score": "1000",
+        "attempt": "3",
+        "answer_selected": "88864",
+        "selected_answers": {
+          "88864": {
+            "index": "1",
+            "time_taken": "0.485154",
+            "text": "Four"
+          }
+        }
+      },
+      "23575": {
+        "question_text": "Suman bought 6 notebooks from the market and the cost was Rs 15 per notebook. Her sister Sama also bought 7 notebooks of same type. Find the total money they paid.",
+        "index": "2",
+        "time_taken": "0.127152",
+        "score": "0",
+        "attempt": "1"
+      },
+      "23576": {
+        "question_text": "Find the sum of predecessor and successor of 101",
+        "index": "3",
+        "time_taken": "0.488673",
+        "score": "0",
+        "attempt": "2",
+        "answer_selected": "88872",
+        "selected_answers": {
+          "88872": {
+            "index": "0",
+            "time_taken": "0.256012",
+            "text": "201"
+          }
+        }
+      },
+      "23577": {
+        "question_text": "Add the numbers 234, 197 and 103.",
+        "index": "4",
+        "time_taken": "0.46789",
+        "score": "0",
+        "attempt": "2",
+        "answer_selected": "88876",
+        "selected_answers": {
+          "88876": {
+            "index": "0",
+            "time_taken": "0.239979",
+            "text": "544"
+          }
+        }
+      },
+      "23578": {
+        "question_text": "Find 12 × 98 using property of difference of two numbers.",
+        "index": "5",
+        "time_taken": "0.532557",
+        "score": "1000",
+        "attempt": "3",
+        "answer_selected": "88880",
+        "selected_answers": {
+          "88880": {
+            "index": "0",
+            "time_taken": "0.331097",
+            "text": "1176"
+          }
+        }
+      },
+      "23579": {
+        "question_text": "Find number of factors of 96.",
+        "index": "6",
+        "time_taken": "0.685623",
+        "score": "1000",
+        "attempt": "3",
+        "answer_selected": "88884",
+        "selected_answers": {
+          "88884": {
+            "index": "0",
+            "time_taken": "0.463118",
+            "text": "12"
+          }
+        }
+      },
+      "23580": {
+        "question_text": "Which digit makes this statement true? 8x22621 is divisible by 9.",
+        "index": "7",
+        "time_taken": "0.715041",
+        "score": "1000",
+        "attempt": "3",
+        "answer_selected": "88888",
+        "selected_answers": {
+          "88888": {
+            "index": "0",
+            "time_taken": "0.529769",
+            "text": "6"
+          }
+        }
+      },
+      "23581": {
+        "question_text": "Find the H.C.F. of 30 and 52.",
+        "index": "8",
+        "time_taken": "0.546815",
+        "score": "0",
+        "attempt": "2",
+        "answer_selected": "88892",
+        "selected_answers": {
+          "88892": {
+            "index": "0",
+            "time_taken": "0.315008",
+            "text": "3"
+          }
+        }
+      },
+      "23582": {
+        "question_text": "Upon arranging the following integers in ascending order – 4, 3, 2, 0, – 1, which number comes at the fourth position from the start.",
+        "index": "9",
+        "time_taken": "0.715788",
+        "score": "0",
+        "attempt": "2",
+        "answer_selected": "88896",
+        "selected_answers": {
+          "88896": {
+            "index": "0",
+            "time_taken": "0.499621",
+            "text": "3"
+          }
+        }
+      },
+      "23583": {
+        "question_text": "Find the value of -8-(-10)",
+        "index": "10",
+        "time_taken": "0.804697",
+        "score": "0",
+        "attempt": "2",
+        "answer_selected": "88900",
+        "selected_answers": {
+          "88900": {
+            "index": "0",
+            "time_taken": "0.616124",
+            "text": "18"
+          }
+        }
+      },
+      "23584": {
+        "question_text": "Find the value of -8-(-10-(-7)+(-4+(-3)))",
+        "index": "11",
+        "time_taken": "0.779495",
+        "score": "0",
+        "attempt": "2",
+        "answer_selected": "88904",
+        "selected_answers": {
+          "88904": {
+            "index": "0",
+            "time_taken": "0.54792",
+            "text": "18"
+          }
+        }
+      },
+      "23585": {
+        "question_text": "Express as improper fraction{tex}7\\frac{3}{4}{/tex}.",
+        "index": "12",
+        "time_taken": "0.867498",
+        "score": "1000",
+        "attempt": "3",
+        "answer_selected": "88908",
+        "selected_answers": {
+          "88908": {
+            "index": "0",
+            "time_taken": "0.651584",
+            "text": "{tex}\\frac{{31}}{4}{/tex}"
+          }
+        }
+      },
+      "23586": {
+        "question_text": "Express as mixed fraction{tex}\\frac{{11}}{5}{/tex}.",
+        "index": "13",
+        "time_taken": "0.947664",
+        "score": "1000",
+        "attempt": "3",
+        "answer_selected": "88912",
+        "selected_answers": {
+          "88912": {
+            "index": "0",
+            "time_taken": "0.716608",
+            "text": "{tex}2\\frac{2}{5}{/tex}"
+          }
+        }
+      },
+      "23587": {
+        "question_text": "The simplest form of {tex}\\frac{{16}}{{72}}{/tex} is __.",
+        "index": "14",
+        "time_taken": "0.769116",
+        "score": "0",
+        "attempt": "2",
+        "answer_selected": "88916",
+        "selected_answers": {
+          "88916": {
+            "index": "0",
+            "time_taken": "0.568277",
+            "text": "{tex}\\frac{1}{2}{/tex} "
+          }
+        }
+      },
+      "23588": {
+        "question_text": "Write 5 rupees 60 paise in rupees.",
+        "index": "15",
+        "time_taken": "0.667883",
+        "score": "0",
+        "attempt": "2",
+        "answer_selected": "88920",
+        "selected_answers": {
+          "88920": {
+            "index": "0",
+            "time_taken": "0.451111",
+            "text": "0.56"
+          }
+        }
+      },
+      "23589": {
+        "question_text": "Ravi’s pencil was 7cm 5mm long and Ram’s pencil was 8cm 3mm long. They joined these pencils to get a bigger pencil. Find its length in cm using decimals? ",
+        "index": "16",
+        "time_taken": "0.553634",
+        "score": "1000",
+        "attempt": "3",
+        "answer_selected": "88924",
+        "selected_answers": {
+          "88924": {
+            "index": "0",
+            "time_taken": "0.335722",
+            "text": "15.8 cm"
+          }
+        }
+      },
+      "23590": {
+        "question_text": "Add 2.48 and 3.059",
+        "index": "17",
+        "time_taken": "0.846796",
+        "score": "0",
+        "attempt": "2",
+        "answer_selected": "88928",
+        "selected_answers": {
+          "88928": {
+            "index": "0",
+            "time_taken": "0.630047",
+            "text": "5.439"
+          }
+        }
+      },
+      "23591": {
+        "question_text": "Convert 24:156 in simplest form",
+        "index": "18",
+        "time_taken": "0.746732",
+        "score": "0",
+        "attempt": "2",
+        "answer_selected": "88932",
+        "selected_answers": {
+          "88932": {
+            "index": "0",
+            "time_taken": "0.530879",
+            "text": "2/7"
+          }
+        }
+      },
+      "23592": {
+        "question_text": "If 60 Rs is divided between Shaunak and Prashant in the ratio of 5:7, how much will Prashant get? ",
+        "index": "19",
+        "time_taken": "0.652861",
+        "score": "0",
+        "attempt": "2",
+        "answer_selected": "88936",
+        "selected_answers": {
+          "88936": {
+            "index": "0",
+            "time_taken": "0.437586",
+            "text": "30"
+          }
+        }
+      },
+      "23593": {
+        "question_text": "If 30, 40, x and 60 are in proportion. Find the value of x.",
+        "index": "20",
+        "time_taken": "0.7793",
+        "score": "1000",
+        "attempt": "3",
+        "answer_selected": "88940",
+        "selected_answers": {
+          "88940": {
+            "index": "0",
+            "time_taken": "0.551601",
+            "text": "45"
+          }
+        }
+      }
+    }
+  }
+}
