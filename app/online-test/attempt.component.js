@@ -28,6 +28,10 @@ angular.
             self.current_question_index = question_index
             self.reset_timer()
           }
+          self.question_status_data[question_index] = {class:"attempting"}
+          DiagnosticTest.setData('question_status_data', {data:self.question_status_data})
+          $("#side_panel_question_"+self.current_question_index).removeClass("untouched").addClass("attempting")
+          console.log(DiagnosticTest.getAllData());
         }
 
         self.reset_timer = function(){
@@ -63,7 +67,9 @@ angular.
             }
           }
           self.fetched_questions = data.questions
+          self.question_status_data = []
           $.each(self.fetched_questions, function(key, value) {
+            self.question_status_data.push({class:"untouched"})
             self.diagnostic_test_data.diagnostic_test.short_choice_questions[value.short_choice_question_id] = {
               question_text: value.question_text,
               attempt_count:0,
@@ -73,15 +79,18 @@ angular.
               selected_answers: {}
             }
           });
+          DiagnosticTest.setData("question_status_data", {data:self.question_status_data})
           console.log(self.fetched_questions)
           $(document).ready(function(){
             var html = "";
             for (var i=0; i<self.fetched_questions.length;i++){
-              html += '<span>'+(i+1)+'</span>'
+              html += '<span id="side_panel_question_'+i+'">'+(i+1)+'</span>'
             }
             $("#sidebar-question-index").append(html)
           })
+          $("#side_panel_question_"+self.get_displayed_question_index()).removeClass("untouched").addClass("attempting")
           $("#sidebar-question-index span").on("click",function(event){
+            $("#side_panel_question_"+self.get_displayed_question_index()).removeClass("attempting")
             $scope.$apply(function(){
               self.change_question(parseInt($(event.currentTarget).html()) - 1)
             })
@@ -89,8 +98,9 @@ angular.
         }
 
 
-        self.select_answer = function(question_id, index){
-          var answer_object = self.fetched_questions[0].answers[index];
+        self.select_answer = function(question_id, answer_index){
+          $("#side_panel_question_"+self.get_displayed_question_index()).removeClass("untouched").removeClass("attempting").addClass("attempted")
+          var answer_object = self.fetched_questions[self.get_displayed_question_index()].answers[answer_index];
           var present_question = self.diagnostic_test_data.diagnostic_test.short_choice_questions[question_id]
           present_question.attempt_count += 1
           present_question.selected_answers[answer_object.short_choice_answer_id] = {
@@ -98,6 +108,7 @@ angular.
             index: present_question.attempt_count,
             time_taken: self.get_time_spent(),
           }
+          self.question_status_data[self.get_displayed_question_index()] = {class:'attempted'}
           present_question.answer_selected = answer_object.short_choice_answer_id;
           present_question.time_taken += self.get_time_spent();
           if (self.current_question_index < self.fetched_questions.length){

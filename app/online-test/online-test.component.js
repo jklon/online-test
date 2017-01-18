@@ -11,14 +11,13 @@ angular.
 
         self.submitStudentForm = function(){
           if (self.standard_id) {
-            DiagnosticTest.setData('standard_id', self.standard_id);
-            DiagnosticTest.setData('user', 
-              {
+            DiagnosticTest.setData('standard_id', {data:self.standard_id});
+            DiagnosticTest.setData('user', {data:{
                 first_name: self.user.first_name,
                 last_name: self.user.last_name,
                 email: self.user.number.toString() + "@resopccp.com",
                 number: self.user.number
-              }
+              }}
             )
             $location.url('/online-test/attempt')
           }
