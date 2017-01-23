@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Tip</h2>
+    <p>You need to work on following things</p>
+    <ul>
+      <li ng-repeat="(key, value) in $ctrl.diagnostic_test_result.weak_entity.entity_list" >
+        {{value.name}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<h2>Scores</h2>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="(key, chapter) in $ctrl.diagnostic_test_result.result.chapters">
+    <div style='background-color: {{$ctrl.color_labels[key % $ctrl.color_labels.length]}}' class="entity-panel">
+      <p>{{chapter.name}}</p>
+      <p>Score: {{chapter.total_score}}</p>
+    </div>
+  </div>
+</div>

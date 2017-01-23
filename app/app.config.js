@@ -13,6 +13,9 @@ angular.
         when('/online-test/attempt', {
           template: '<attempt></attempt>'
         }).
+        when('/online-test/result', {
+          template: '<result></result>'
+        }).
         otherwise('/online-test');
     }
   ]);

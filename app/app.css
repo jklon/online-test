@@ -4,8 +4,13 @@
 
 #main-body{
   margin-top: 69px;
+  padding: 20px;
+  padding-top: 0;
 }
 
+.navbar-default{
+  background-color: #848484;
+}
 @media screen and (min-width: 751px) {
     #main-body {
       margin-left: 200px
@@ -13,10 +18,10 @@
 }
 /*CSS FOR NAV BAR WITH SLIDER FROM SIDE*/
 #sidebar-wrapper {
-  top: 50px;
+  top: 49px;
   left: -200px;
   width: 200px;
-  background-color: #b3b3b3;
+  background-color: #848484;
   color: white;
   position: fixed;
   height: 100%;
@@ -74,14 +79,21 @@
   margin:4px;
   cursor: pointer;
   border-radius: 2px;
+  color:#848484;
 }
 #sidebar-question-index span.attempted{
-  background-color: #c6fbaa;
+  background-color: #5cb85c;
+  color:white;
 }
 #sidebar-question-index span.attempting{
   background-color: #6c6c6c;
+  color: white;
 }
 #sidebar-question-index p {
   color: white
+}
+
+#test_submit_btn{
+  display: block
 }
 /*CSS FOR NAVBAR WITH SLIDER FROM SIDE ENDS HERE*/
