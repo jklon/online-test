@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="app.css" />
      <link rel="stylesheet" href="/stylesheets/result.css" />
 
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDlHJN6FyjRJuiA0zKZqYhVRjGST6NXY8U",
+        authDomain: "education-f86f1.firebaseapp.com",
+        databaseURL: "https://education-f86f1.firebaseio.com",
+        storageBucket: "education-f86f1.appspot.com",
+        messagingSenderId: "960992505869"
+      };
+      firebase.initializeApp(config);
+    </script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -18,11 +32,9 @@
     <script src="core/diagnostic-test/diagnostic-test.module.js"></script>
     <script src="core/diagnostic-test/diagnostic-test.service.js"></script>
     <script src="core/header/header.component.js"></script>
-
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
     <script src="app.animations.js"></script>
-
     <script src="online-test/online-test.module.js"></script>
     <script src="online-test/online-test.component.js"></script>
     <!-- <script src="online-test/attempt.module.js"></script> -->

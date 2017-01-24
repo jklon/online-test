@@ -82,11 +82,12 @@ angular.
           DiagnosticTest.setData("question_status_data", {data:self.question_status_data})
           console.log(self.fetched_questions)
           $(document).ready(function(){
+            $("#sidebar-wrapper").html("").html('<div id="sidebar-question-index"><p>Question list</p><div id="side-panel-questions"></div></div>');
             var html = "";
             for (var i=0; i<self.fetched_questions.length;i++){
               html += '<span id="side_panel_question_'+i+'">'+(i+1)+'</span>'
             }
-            html += '<button id="test_submit_btn" type="button" class="btn btn-success">Submit test</button>'
+            html += '<br><br><button id="test_submit_btn" type="button" class="btn btn-success">Submit test</button>'
             $("#side-panel-questions").html("").append(html)
             $("#test_submit_btn").on("click", function(){
               DiagnosticTest.http.submit_test(self.diagnostic_test_data, function(data){

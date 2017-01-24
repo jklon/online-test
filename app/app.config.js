@@ -21,8 +21,8 @@ angular.
   ]);
 
 angular.module('phonecatApp')
-.run(function($rootScope) {
-  $rootScope.base_url_api = "http://192.168.0.166:3000/"
+.run(function($rootScope, $http) {
+  $rootScope.base_url_api = "https://www.hotelashokachomu.com/"
   // $rootScope.user = {
   //   first_name:'',
   //   last_name: '',

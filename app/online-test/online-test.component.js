@@ -27,8 +27,16 @@ angular.
         self.resetForm = function(){
         }
 
-        $http.get($rootScope.base_url_api + "api/standards/get_standards.json").then(function(response){
-          self.standards = response.data.standards
+        // $http.get({
+        //   method: "GET",
+        //   url: $rootScope.base_url_api + "api/standards/get_standards.json",
+        //   headers: {"Authorization" : "Basic " + btoa("education:education")}
+        // }).then(function(response){
+        //   self.standards = response.data.standards
+        //   console.log(self.standards);
+
+        DiagnosticTest.http.get_standards({}, function(data){
+          self.standards = data.standards
           console.log(self.standards);
         })
 
@@ -40,6 +48,11 @@ angular.
         }
         self.standard_id = null
         self.subject_id = '';
+
+        $(document).ready(function(){
+          $("#sidebar-wrapper").html("")
+        })
+
       }
     ]
   });
