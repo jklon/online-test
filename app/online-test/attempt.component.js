@@ -23,6 +23,7 @@ angular.
           var test_params = {
             standard_id: DiagnosticTest.getData('standard_id'),
             subject_id: DiagnosticTest.getData('standard_id'),
+            stream_id: DiagnosticTest.getData('stream_id'),
           }
         }
 
@@ -171,7 +172,7 @@ angular.
   return {
     link: function(scope, element, attrs) {
       scope.$watch(attrs.mathJaxBind, function(newValue, oldValue) {
-        element.text(newValue);
+        element.html(newValue);
         refresh(element[0]);
       });
     }

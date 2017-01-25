@@ -29,15 +29,20 @@ angular.
                 DiagnosticTest.attempt_ready(true);
                 $location.url('/online-test/attempt')
               } else {
-                DiagnosticTest.http.get_standards({}, function(data){
-                  self.standards = data.standards
-                  console.log(self.standards);
-                })
+                // DiagnosticTest.http.get_standards({}, function(data){
+                //   self.standards = data.standards
+                //   console.log(self.standards);
+                // })
+                self.standards = data.standards
+                for (var key in data.standards){
+                  self.streams[data.standards[key].standard_id] = data.standards[key].streams
+                }
                 self.standard_form_class = "shown"
               }
             })
           } else if (self.standard_id) {
             DiagnosticTest.setData('standard_id', {data:self.standard_id})
+            DiagnosticTest.setData('stream_id', {data:self.stream_id})
             DiagnosticTest.attempt_ready(true);
             $location.url('/online-test/attempt')
           }
@@ -54,7 +59,9 @@ angular.
           number:9740644522,
           email: '9740644522@resopccp.com'
         }
+        self.streams = {}
         self.standard_id = null
+        self.stream_id = null
         self.subject_id = '';
 
         $(document).ready(function(){

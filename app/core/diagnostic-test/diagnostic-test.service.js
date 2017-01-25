@@ -5,6 +5,7 @@ angular.
       const data = {
         'question_status_data' : {data:[]},
         'standard_id' : {},
+        'stream_id'   : {},
         'user': {},
         'diagnostic_test_result':{},
         'personalized':{},
@@ -13,6 +14,7 @@ angular.
       const data_template = {
         'question_status_data' : {data:[]},
         'standard_id' : {},
+        'stream_id'   : {},
         'user': {},
         'diagnostic_test_result':{},
         'personalized':{},
