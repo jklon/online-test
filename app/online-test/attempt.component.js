@@ -10,8 +10,32 @@ angular.
         console.log("This is AttemptController");
         console.log(DiagnosticTest.getAllData())
         var self = this;
-        self.current_question_index = 0;
+        
+        if (DiagnosticTest.getData('personalized')){
+          var test_params = {
+            standard_id: DiagnosticTest.getData('standard_id'),
+            subject_id: DiagnosticTest.getData('standard_id'),
+            personalization_type:1,
+            diagnostic_test_id:1,
+            number:DiagnosticTest.getData('user').number
+          }
+        } else {
+          var test_params = {
+            standard_id: DiagnosticTest.getData('standard_id'),
+            subject_id: DiagnosticTest.getData('standard_id'),
+          }
+        }
 
+        DiagnosticTest.http.get_test( test_params , function(data){
+            self.build_diagnostic_test_data(data)
+          }
+        )
+
+        self.current_question_index = 0;
+        if (DiagnosticTest.attempt_ready() == false){
+          console.log(DiagnosticTest.attempt_ready())
+          $location.url("/online-test/")
+        }
 
         self.change_question = function(question_index){
           try {
@@ -45,15 +69,6 @@ angular.
         self.get_displayed_question_index = function(){
           return self.current_question_index;
         }
-
-        DiagnosticTest.http.get_test(
-          {
-            standard_id: DiagnosticTest.getData('standard_id'),
-            subject_id: DiagnosticTest.getData('standard_id')
-          }, function(data){
-            self.build_diagnostic_test_data(data)
-          }
-        )
 
 
         self.build_diagnostic_test_data = function(data){
@@ -147,3 +162,18 @@ angular.
       }
     ]
   });
+
+angular.
+  module('onlineTest').directive('mathJaxBind', function() {
+  var refresh = function(element) {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub, element]);
+  };
+  return {
+    link: function(scope, element, attrs) {
+      scope.$watch(attrs.mathJaxBind, function(newValue, oldValue) {
+        element.text(newValue);
+        refresh(element[0]);
+      });
+    }
+  };
+});

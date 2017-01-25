@@ -23,11 +23,4 @@ angular.
 angular.module('phonecatApp')
 .run(function($rootScope, $http) {
   $rootScope.base_url_api = "https://www.hotelashokachomu.com/"
-  // $rootScope.user = {
-  //   first_name:'',
-  //   last_name: '',
-  //   email:'',
-  //   number:''
-  // }
-  // $rootScope.standard_id = ''
 })

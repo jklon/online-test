@@ -1,4 +1,8 @@
-<link rel="stylesheet" href="stylesheets/online-test.css" />
+<style>
+  .hidden{
+    display: none;
+  }
+</style>
 <div id="test-container">
   <div class="row">
 
@@ -24,7 +28,7 @@
         </div>
 
 
-        <div class="form-group">
+        <div class="form-group {{$ctrl.standard_form_class}}">
           <label class="col-sm-3 control-label">Standard</label>
           <div class="col-sm-2">
             <select class="form-control" ng-model="$ctrl.standard_id" required>

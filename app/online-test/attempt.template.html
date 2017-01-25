@@ -1,17 +1,18 @@
-<link rel="stylesheet" href="stylesheets/attempt.css" />
+
 <div id="test-container">
   <div class="row">
 
     <div class="col-xs-12">
-      <p><b>Question: </b>{{$ctrl.fetched_questions[$ctrl.current_question_index].question_text}}</p>
+      <p><b>Question: </b><span math-jax-bind="$ctrl.fetched_questions[$ctrl.current_question_index].question_text" ></span></p>
 
       <div class="radio" ng-repeat="answer in $ctrl.fetched_questions[$ctrl.current_question_index].answers">
-        <label ng-click="$ctrl.select_answer($ctrl.fetched_questions[$ctrl.current_question_index].short_choice_question_id, $index)"><input type="radio" name="optradio" value={{answer.short_choice_answer_id}} ng-model="$ctrl.diagnostic_test_data.short_choice_questions[$ctrl.fetched_questions[$ctrl.current_question_index].short_choice_question_id].answer_selected">{{answer.answer_text}}</label>
+        <label ng-click="$ctrl.select_answer($ctrl.fetched_questions[$ctrl.current_question_index].short_choice_question_id, $index)"><input type="radio" name="optradio" value={{answer.short_choice_answer_id}} ng-model="$ctrl.diagnostic_test_data.short_choice_questions[$ctrl.fetched_questions[$ctrl.current_question_index].short_choice_question_id].answer_selected"><span math-jax-bind="answer.answer_text" ></span></label>
       </div>
 
     </div>
   </div>
 </div>
+
 
   <br><br><br><br><br><br><br><br><br><br>
   <pre>{{$ctrl.diagnostic_test_data | json}}</pre>
