@@ -1,3 +1,6 @@
+.hidden{
+  display: none;
+}
 #test-container{
   padding: 15px
 }

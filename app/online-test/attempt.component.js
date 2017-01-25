@@ -7,10 +7,13 @@ angular.
     templateUrl: 'online-test/attempt.template.html',
     controller: ['DiagnosticTest', '$scope', '$location',
       function AttemptController(DiagnosticTest, $scope, $location) {
+        if (DiagnosticTest.attempt_ready() == false){
+          $location.url("/online-test/")
+        }
         console.log("This is AttemptController");
         console.log(DiagnosticTest.getAllData())
         var self = this;
-        
+        self.test_start_text = "Hi " + (DiagnosticTest.getData('user') ? DiagnosticTest.getData('user').first_name : "") + ", We have got a personalized test for you designed to improve your week areas based on your last attempt here :)"  
         if (DiagnosticTest.getData('personalized')){
           var test_params = {
             standard_id: DiagnosticTest.getData('standard_id'),
@@ -33,10 +36,6 @@ angular.
         )
 
         self.current_question_index = 0;
-        if (DiagnosticTest.attempt_ready() == false){
-          console.log(DiagnosticTest.attempt_ready())
-          $location.url("/online-test/")
-        }
 
         self.change_question = function(question_index){
           try {
@@ -96,7 +95,6 @@ angular.
             }
           });
           DiagnosticTest.setData("question_status_data", {data:self.question_status_data})
-          console.log(self.fetched_questions)
           $(document).ready(function(){
             $("#sidebar-wrapper").html("").html('<div id="sidebar-question-index"><p>Question list</p><div id="side-panel-questions"></div></div>');
             var html = "";
@@ -123,7 +121,9 @@ angular.
               self.change_question(parseInt($(event.currentTarget).html()) - 1)
             })
           })
-          self.change_question(0);
+          $("#start-test-btn").prop("disabled", false).on("click", function(){
+            self.change_question(0);
+          })     
         }
 
 
