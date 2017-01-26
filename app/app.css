@@ -12,7 +12,13 @@
 }
 
 .navbar-default{
-  background-color: #848484;
+  background-color: #3a8a92;
+}
+.navbar-brand{
+  color: white !important;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
 }
 @media screen and (min-width: 751px) {
     #main-body {
@@ -24,7 +30,7 @@
   top: 49px;
   left: -200px;
   width: 200px;
-  background-color: #848484;
+  background-color: #3a8a92;
   color: white;
   position: fixed;
   height: 100%;
@@ -100,3 +106,15 @@
   display: block
 }
 /*CSS FOR NAVBAR WITH SLIDER FROM SIDE ENDS HERE*/
+
+/*BOOTSTRAP BOOSTRAP RELATED CHANGES*/
+.btn-primary{
+  background-color: #3a8a92;
+      border-color: #3a8a92;
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary:visited{
+  text-decoration: none;
+  background-color: #2e6d73;
+      border-color: #2e6d73;
+}
+/**/
