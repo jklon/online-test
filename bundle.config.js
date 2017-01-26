@@ -4,7 +4,17 @@ module.exports = {
     main: {
       scripts: [
         './app/app.js',
-        './app/js/baz.js'
+        './app/core/core.module.js',
+        './app/core/diagnostic-test/diagnostic-test.module.js',
+        './app/core/diagnostic-test/diagnostic-test.service.js',
+        './app/core/header/header.component.js',
+        './app/app.module.js',
+        './app/app.config.js',
+        './app/app.animations.js',
+        './app/online-test/online-test.module.js',
+        './app/online-test/online-test.component.js',
+        './app/online-test/attempt.component.js',
+        './app/online-test/result.component.js'
       ],
       styles: './content/**/*.css'
     },

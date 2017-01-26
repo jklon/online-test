@@ -1,7 +1,7 @@
 angular.
   module('core.diagnostic-test').
   factory('DiagnosticTest', ['$resource', '$rootScope',
-    ($resource, $rootScope) => {
+    function($resource, $rootScope){
       const data = {
         'question_status_data' : {data:[]},
         'standard_id' : {},
@@ -23,25 +23,25 @@ angular.
       var attempt_ready = false;
 
       return {
-          getData(key) {
+          getData: function(key) {
              return data[key].data
           },
-          setData(key,value) {
+          setData: function(key,value) {
             Object.assign(data[key], value)
           },
 
-          getAllData(){
+          getAllData: function(){
             return data
           },
 
-          clearAllData(){
+          clearAllData: function(){
             console.log("Cleaning DiagnosticTest service data");
             Object.assign(data, data_template);
             attempt_ready = false
             return true
           },
 
-          attempt_ready(value=null){
+          attempt_ready: function(value){
             if (value){
               attempt_ready = value
             }

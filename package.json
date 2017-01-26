@@ -9,6 +9,7 @@
     "bower": "^1.7.7",
     "gulp": "^3.9.1",
     "gulp-bundle-assets": "^2.27.1",
+    "gulp-minify": "0.0.14",
     "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
