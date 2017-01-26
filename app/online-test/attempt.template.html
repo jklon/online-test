@@ -1,3 +1,20 @@
+<style>
+  #attempt-overlay{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 100000;
+    background-color: white;
+    display: table;
+    text-align: center;
+  }
+  #attempt-overlay content{
+    display: table-cell;
+    vertical-align: middle;
+  }
+</style>
 
 <div id="test-container">
   <div class="row">
@@ -13,6 +30,23 @@
   </div>
 </div>
 
+<div id="attempt-overlay">
+  <content>
+    <span>{{$ctrl.test_start_text}}</span>
+    <li>Keep your pen and paper ready</li>
+    <li>Your timer will start when you press the start button</li>
+    <li>FASTER replies will get you bonus points</li>
+    <button id="start-test-btn" class="btn btn-primary" disabled>Start</button>
+  </content>
+</div>
 
   <br><br><br><br><br><br><br><br><br><br>
   <pre>{{$ctrl.diagnostic_test_data | json}}</pre>
+
+
+
+<script type="text/javascript">
+  $("#start-test-btn").on("click", function(){
+    $("#attempt-overlay").addClass("hidden");
+  })      
+</script>

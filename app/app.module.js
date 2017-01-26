@@ -8,4 +8,3 @@ angular.module('phonecatApp', [
   'ngAnimate',
   'onlineTest'
 ]);
-
