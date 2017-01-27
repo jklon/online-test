@@ -3,56 +3,73 @@
     display: none;
   }
 </style>
+
 <div id="test-container">
-  <div class="row">
-
-    <div class="col-xs-12">
 
 
-      <form class="form-horizontal" ng-submit="$ctrl.submitStudentForm()" role="form">
+      <form ng-submit="$ctrl.submitStudentForm()" layout="column">
+
+       
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>First name</label>
+            <input ng-model="$ctrl.user.first_name" required>
+          </md-input-container>
+       
+
         
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Name</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" ng-model="$ctrl.user.first_name" required/>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Phone Number</label>
+            <input ng-model="$ctrl.user.number">
+          </md-input-container>
+        
+          <div class="{{$ctrl.standard_form_class}}">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Standard</label>
+              <md-select ng-model="$ctrl.standard_id">
+                <md-option ng-repeat="standard in $ctrl.standards" value="{{standard.standard_id}}">
+                  {{standard.name}}
+                </md-option>
+              </md-select>
+            </md-input-container>
           </div>
-          <div class="col-sm-3"></div>
-        </div>
 
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Number</label>
-          <div class="col-sm-6">
-            <input type="num" class="form-control" ng-model="$ctrl.user.number" required/>
+          <div class="{{$ctrl.standard_form_class}}">
+          <md-input-container class="md-block {{$ctrl.standard_form_class}}" flex-gt-sm>
+            <label>Stream</label>
+            <md-select ng-model="$ctrl.stream">
+              <md-option ng-repeat="stream in $ctrl.streams[$ctrl.standard_id]" value="{{stream.id}}">
+                {{stream.name}}
+              </md-option>
+            </md-select>
+          </md-input-container>
           </div>
-          <div class="col-sm-3"></div>
-        </div>
-
-
-        <div class="form-group {{$ctrl.standard_form_class}}">
-          <label class="col-sm-3 control-label">Standard</label>
-          <div class="col-sm-2">
-            <select class="form-control" ng-model="$ctrl.standard_id" required>
-              <option ng-repeat="standard in $ctrl.standards" value="{{standard.standard_id}}">{{standard.name}}</option>
-            </select>
-          </div>
-          <div class="col-sm-7"></div>
-        </div>
-        <div class="form-group {{$ctrl.standard_form_class}}">
-          <label class="col-sm-3 control-label">Stream</label>
-          <div class="col-sm-2">
-            <select class="form-control" ng-model="$ctrl.stream_id" required>
-              <option ng-repeat="stream in $ctrl.streams[$ctrl.standard_id]" value="{{stream.id}}">{{stream.name}}</option>
-            </select>
-          </div>
-          <div class="col-sm-7"></div>
-        </div>
         
 
-        <input type="submit" value="Start" class="btn btn-primary col-sm-offset-3" /> 
-        <input type="reset" value="Reset" ng-click="$ctrl.resetForm()" class="btn" /> <br/>
 
+        <!--           <md-input-container class="md-block" flex-gt-sm>
+                    <label>Postal Code</label>
+                    <input name="postalCode" ng-model="user.postalCode" placeholder="12345"
+                           required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+                    <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
+                      <div ng-message="required" class="my-message">You must supply a postal code.</div>
+                      <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+                        code.
+                      </div>
+                      <div ng-message="md-maxlength" class="my-message">
+                        Don't use the long version silly...we don't need to be that specific...
+                      </div>
+                    </div>
+                  </md-input-container> -->
+
+        <div layout-gt-sm="row">
+          <md-button type="submit" class="md-raised md-primary">Start</md-button>
+          <md-button type="reset" class="md-raised" ng-click="$ctrl.resetForm()">Reset</md-button>
+        </div>
+<!--         <md-input-container class="md-block">
+          <label>Biography</label>
+          <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container> -->
       </form>
-
 
     </div>
   </div>

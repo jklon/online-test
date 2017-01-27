@@ -16,17 +16,11 @@
   }
 </style>
 
-<div id="test-container">
-  <div class="row">
+<div id="test-container" layout="column" layout-align="top center">
+  <p><span math-jax-bind="$ctrl.fetched_questions[$ctrl.current_question_index].question_text" ></span></p>
 
-    <div class="col-xs-12">
-      <p><b>Question: </b><span math-jax-bind="$ctrl.fetched_questions[$ctrl.current_question_index].question_text" ></span></p>
-
-      <div class="radio" ng-repeat="answer in $ctrl.fetched_questions[$ctrl.current_question_index].answers">
-        <label ng-click="$ctrl.select_answer($ctrl.fetched_questions[$ctrl.current_question_index].short_choice_question_id, $index)"><input type="radio" name="optradio" value={{answer.short_choice_answer_id}} ng-model="$ctrl.diagnostic_test_data.short_choice_questions[$ctrl.fetched_questions[$ctrl.current_question_index].short_choice_question_id].answer_selected"><span math-jax-bind="answer.answer_text" ></span></label>
-      </div>
-
-    </div>
+  <div ng-repeat="answer in $ctrl.fetched_questions[$ctrl.current_question_index].answers">
+    <md-button class="answer-button {{$ctrl.diagnostic_test_data.diagnostic_test.short_choice_questions[$ctrl.fetched_questions[$ctrl.current_question_index].short_choice_question_id].answer_selected == answer.short_choice_answer_id ? 'selected-option' : 'unselected-option'}}"  ng-click="$ctrl.select_answer($ctrl.fetched_questions[$ctrl.current_question_index].short_choice_question_id, $index)"><span math-jax-bind="answer.answer_text" ></span></md-button>
   </div>
 </div>
 
@@ -36,7 +30,7 @@
     <li>Keep your pen and paper ready</li>
     <li>Your timer will start when you press the start button</li>
     <li>FASTER replies will get you bonus points</li>
-    <button id="start-test-btn" class="btn btn-primary" disabled>Start</button>
+    <md-button ng-click="start_test()" id="start-test-btn" class="md-raised md-primary" disabled>Start</md-button>
   </content>
 </div>
 
@@ -46,7 +40,8 @@
 
 
 <script type="text/javascript">
-  $("#start-test-btn").on("click", function(){
-    $("#attempt-overlay").addClass("hidden");
-  })      
+  // $("#start-test-btn").on("click", function(){
+  //   console.log("Starting the test now")
+  //   $("#attempt-overlay").addClass("hidden");
+  // })      
 </script>
