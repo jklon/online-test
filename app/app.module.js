@@ -5,6 +5,7 @@ angular.module('phonecatApp', [
   'ngAnimate',
   'ngRoute',
   'core',
-  'ngAnimate',
-  'onlineTest'
+  'onlineTest',
+  'ngAria',
+  'ngMaterial'
 ]);

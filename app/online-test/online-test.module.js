@@ -1,4 +1,4 @@
 'use strict';
 
 // Define the `phoneDetail` module
-angular.module('onlineTest', []);
+angular.module('onlineTest', ['ngMaterial']);
