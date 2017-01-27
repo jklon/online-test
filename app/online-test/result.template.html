@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-xs-12">
     <h2>Tip</h2>
     <p>You need to work on following things</p>
@@ -20,32 +20,289 @@
     </div>
   </div>
 </div>
+ -->
 
+
+<!-- Duplicate Materialize code -->
+<!--
   <md-content class="md-padding" layout-xs="column" layout="column">
+
+  <md-card  md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Difficulty Analysis</h1>
+      </div>
+    </md-toolbar>
+    <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+
+  </md-card>
+
+  <md-card  md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Attempt Breakup</h1>
+      </div>
+    </md-toolbar>
+    <div flex-xs="" flex-gt-xs="50" layout-fill layout-align="center center">
+      <canvas id="doughnut" class="chart chart-doughnut" chart-data="attempt_data" chart-labels="attempt_labels"></canvas> 
+    </div>
+  </md-card>
+  <md-card  md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Topicwise Analysis</h1>
+      </div>
+    </md-toolbar>
+    
+      <canvas id="base" class="chart-horizontal-bar" chart-data="topicwise_data" chart-labels="topicwise_labels" ></canvas> 
+    
+  </md-card>
+
+  <md-card  md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Topicwise Time Analysis</h1>
+      </div>
+    </md-toolbar>
+    <canvas id="radar" class="chart chart-radar" chart-data="topic_time_data" chart-options="options" chart-labels="topic_time_labels"></canvas> 
+  </md-card>
+    <md-card  md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Chapterwise Time Analysis</h1>
+      </div>
+    </md-toolbar>
+    <canvas id="radar" class="chart chart-radar" chart-data="chapter_time_data" chart-options="options" chart-labels="chapter_time_labels"></canvas> 
+  </md-card>
     <div flex-xs="" flex-gt-xs="50" layout="column">
-      <div flex-xs="" flex-gt-xs="50" layout="row">
-        <md-card md-theme="dark-grey" md-theme-watch="">
+      <div flex-xs="" flex-gt-xs="50" layout="row" layout-align="center center">
+        <md-card md-theme-watch="" md-whiteframe="12">
           <md-card-title>
-            <md-card-title-text layout="column"       layout-align="center center">
-              <span class="md-headline">Card with image</span>
-              <span class="md-subhead">Large</span>
+            <md-card-title-text layout="column" layout-align="center center">
+              <span class="md-headline">Stream Name</span>
+              <span class="md-subhead">Score 1000</span>
             </md-card-title-text>
             <md-card-title-media>
-              <div class="md-media-lg card-media"></div>
+            </md-card-title-media>
+          </md-card-title>
+        </md-card>
+        <md-card md-theme-watch="" md-whiteframe="12">
+          <md-card-title>
+            <md-card-title-text layout="column" layout-align="center center">
+              <span class="md-headline">Stream Name</span>
+              <span class="md-subhead">Score 1000</span>
+            </md-card-title-text>
+            <md-card-title-media>
             </md-card-title-media>
           </md-card-title>
         </md-card>
       </div>
-    </div>
-  </md-content>
+      <div flex-xs="" flex-gt-xs="50" layout="row"  layout-align="center center">
+        <md-card md-theme-watch="" md-whiteframe="7">
+          <md-card-title>
+            <md-card-title-text layout="column"  layout-align="center center">
+              <span class="md-headline">Chapter Name</span>
+              <span class="md-head">Score: 1000</span>
+            </md-card-title-text>
+          </md-card-title>
 
-<!-- Duplicate Materialize code -->
+        </md-card>
+         <md-card md-theme-watch="" md-whiteframe="8">
+          <md-card-title>
+            <md-card-title-text layout="column" layout-align="center center">
+              <span class="md-headline">Chapter Name</span>
+              <span class="md-head">Score: 1000</span>
+            </md-card-title-text>
+          </md-card-title>
+
+        </md-card>
+      </div>
+    </div>
+
+
+  <md-card  md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">SPI</h1>
+      </div>
+    </md-toolbar>
+    <md-card-title>
+      <md-card-title-text layout="column"       layout-align="center center">
+        <span class="md-head">SPI is Success Potential Index rated between 0 and 1000. It determines the relative chances of a candidate to clear the examination. The score of 1000 means he has the highest chances of clearing the examination while 0 means that he has the lowest chance of clearing the examination.</span>
+      </md-card-title-text>
+    </md-card-title>
+  </md-card>
+  <md-card md-theme="dark-grey" md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h2 class="md-flex">Reso Tip</h2>
+      </div>
+    </md-toolbar>
+    <md-card-title>
+    <span class="md-head">You need to work on following things</span>
+    </md-card-title>
+    <md-list-item>
+      <p> Tip#1 </p>
+      <md-divider></md-divider>
+    </md-list-item>
+    <md-list-item>
+      <p> Tip#2 </p>
+      <md-divider></md-divider>
+    </md-list-item>
+  </md-card>
+  <md-card md-theme-watch=""  >
+  <md-toolbar >
+    <div class="md-toolbar-tools">
+      <h2 class="md-flex">Overall Performance At Various Difficulty Levels</h2>
+    </div>
+  </md-toolbar>
+    <md-card-content>
+      <table layout-fill>
+        <thead>
+          <tr>
+            <th>Questions</th>
+            <th>Correct</th>
+            <th>Incorrect</th>
+            <th>Unattempted</th>
+            <th>Out of</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Easy</td>
+            <td>10</td>
+            <td>20</td>
+            <td>10</td>
+            <td>40</td>
+          </tr>
+          <tr>
+            <td>Easy</td>
+            <td>10</td>
+            <td>20</td>
+            <td>10</td>
+            <td>40</td>
+          </tr>
+        </tbody>
+      </table>
+    </md-card-content>
+    <!-- </div>  
+  </md-card>
+  <md-card md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h2 class="md-flex">Topicwise Analysis</h2>
+      </div>
+    </md-toolbar>
+    <md-card-content>
+      <div flex-xs="" flex-gt-xs="50" layout="column" layout-fill>
+        <table layout-fill>
+          <thead>
+            <tr><th>Algebra</th></tr>
+          </thead>
+          
+          <tbody>
+            <tr>
+              <td style="width:70%">
+                <div class="pbar">
+                  <div class="side1" aria-valuemax="100" style=" width: 50%;background-color:teal">500</div>
+                </div>
+              </td>
+              <td><span>#1Topic Name</span></td>
+            </tr>
+            <tr>
+              <td style="width:70%">
+                <div class="pbar">
+                  <div class="side1" aria-valuemax="100" style=" width: 50%;background-color:teal">500</div>
+                </div>
+              </td>
+              <td><span>#1Topic Name</span></td>
+            </tr>
+          </tbody>
+        
+        </table>
+      </div>
+      <div flex-xs="" flex-gt-xs="50" layout="column">
+        <table  layout-fill>
+          <thead>
+            <tr><th>Number System</th></tr>
+          </thead>
+          
+          <tbody>
+            <tr>
+              <td style="width:70%">
+                <div class="pbar">
+                  <div class="side1" aria-valuemax="100" style=" width: 0%;background-color:teal">00</div>
+                </div>
+              </td>
+              <td><span>#1Topic Name</span></td>
+            </tr>
+            <tr>
+              <td style="width:70%">
+                <div class="pbar">
+                  <div class="side1" aria-valuemax="100" style=" width: 50%;background-color:teal">500</div>
+                </div>
+              </td>
+              <td><span>#2Topic Name</span></td>
+            </tr>
+          </tbody>
+        
+        </table>
+      </div>
+    </md-card-content>
+  </md-card>
+  <md-card md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h2 class="md-flex">Question Analysis</h2>
+      </div>
+    </md-toolbar>
+    <md-card-content>
+      <table layout-fill>
+          <thead>
+            <tr>
+              <th>Q. No.</th>
+              <th>Topic</th>
+              <th>Subject</th>
+              <th>Difficulty Type</th>
+              <th>Your Response</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Chap Name</td>
+              <td>Topic Name</td>
+              <td>Difficulty</td>
+              <td>Attempt<i class="fa fa-check" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Chap Name</td>
+              <td>Topic Name</td>
+              <td>Difficulty</td>
+              <td>Attempt<i class="fa fa-check" aria-hidden="true"></i></td>
+            </tr>
+          </tbody>
+        
+        </table>
+      </md-card-content>
+    </md-card>
+  </div>
+</md-content>
+
+-->
+
+
+
+
+
+<!--Original Content -->
 <md-content class="md-padding" layout-xs="column" layout="column">
-  <div flex-xs="" flex-gt-xs="50" layout="column">
-    <div flex-xs="" flex-gt-xs="50" layout="row">
-      <md-card md-theme="dark-grey" md-theme-watch="" ng-repeat="(key, stream) in $ctrl.diagnostic_test_result.result.streams" >
+<div flex-xs="" flex-gt-xs="50" layout="row"  layout-align="center center">
+      <md-card  md-theme-watch="" ng-repeat="(key, stream) in $ctrl.diagnostic_test_result.result.streams"  md-whiteframe="15" >
         <md-card-title>
-          <md-card-title-text layout="column"       layout-align="center center">
+          <md-card-title-text layout="column" layout-align="center center">
             <span class="md-headline">{{stream.other_details.stream_name}}</span>
             <span class="md-head">Score: {{stream.other_details.average_score | number : 2}}</span>
           </md-card-title-text>
@@ -53,288 +310,193 @@
 
       </md-card>
   </div>
-  <div flex-xs="" flex-gt-xs="50" layout="row">
-    <md-card md-theme="dark-grey" md-theme-watch="" ng-repeat="(key, chapter) in $ctrl.diagnostic_test_result.result.chapters" >
+  <div flex-xs="" flex-gt-xs="50" layout="row"  layout-align="center center">
+    <md-card md-theme-watch="" ng-repeat="(key, chapter) in $ctrl.diagnostic_test_result.result.chapters"  md-whiteframe="10">
       <md-card-title>
         <md-card-title-text layout="column"       layout-align="center center">
-          <span class="md-headline">{{stream.other_details.stream_name}}</span>
-          <span class="md-head">Score: {{stream.other_details.average_score | number : 2}}</span>
+          <span class="md-headline">{{chapter.name}}</span>
+          <span class="md-head">Score: {{chapter.average_score | number : 2}}</span>
         </md-card-title-text>
       </md-card-title>
 
     </md-card>
   </div>
-</div>
+ <md-card  md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Difficulty Analysis</h1>
+      </div>
+    </md-toolbar>
 
+    <div flex-xs="" flex-gt-xs="50" layout="column">
+    <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+  </div>
+  </md-card>
 
+  <md-card  md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Attempt Breakup</h1>
+      </div>
+    </md-toolbar>
+    <div flex-xs="" flex-gt-xs="50" layout-fill layout-align="center center">
+      <canvas id="doughnut" class="chart chart-doughnut" chart-data="attempt_data" chart-labels="attempt_labels"></canvas> 
+    </div>
+  </md-card>
+  <md-card  md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Topicwise Analysis</h1>
+      </div>
+    </md-toolbar>
 
+    <div flex-xs="" flex-gt-xs="50" layout="column">    
+      <canvas id="base" class="chart-horizontal-bar" chart-data="topicwise_data" chart-labels="topicwise_labels" ></canvas> 
+    </div>
+  </md-card>
+  
+  <md-card  md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Topicwise Time Analysis</h1>
+      </div>
+    </md-toolbar>
+    <div flex-xs="" flex-gt-xs="50" layout="column">
+      <canvas id="radar" class="chart chart-radar" chart-data="topic_time_data" chart-options="options" chart-labels="topic_time_labels"></canvas> 
+    </div>
+  </md-card>
+    <md-card  md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Chapterwise Time Analysis</h1>
+      </div>
+    </md-toolbar>
+
+    <div flex-xs="" flex-gt-xs="50" layout="column">
+    <canvas id="radar" class="chart chart-radar" chart-data="chapter_time_data" chart-options="options" chart-labels="chapter_time_labels"></canvas> 
+  </div>
+  </md-card>
+  <div flex-xs="" flex-gt-xs="50" layout="column">
+    
+  <md-card  md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">SPI</h1>
+      </div>
+    </md-toolbar>
+
+    <md-card-title>
+      <md-card-title-text layout="column"       layout-align="center center">
+        <span class="md-head">SPI is Success Potential Index rated between 0 and 1000. It determines the relative chances of a candidate to clear the examination. The score of 1000 means he has the highest chances of clearing the examination while 0 means that he has the lowest chance of clearing the examination.</span>
+      </md-card-title-text>
+    </md-card-title>
+  </md-card>
+  <md-card md-theme="dark-grey" md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h2 class="md-flex">Reso Tip</h2>
+      </div>
+    </md-toolbar>
+    <md-card-title>
+    <span class="md-head">You need to work on following things</span>
+    </md-card-title>
+    <md-list-item ng-repeat="(key, value) in $ctrl.diagnostic_test_result.weak_entity.entity_list">
+      <p> {{ value.name }} </p>
+      <md-divider ng-if="!$last"></md-divider>
+    </md-list-item>
+  </md-card>
+  <md-card md-theme-watch=""  >
+  <md-toolbar >
+    <div class="md-toolbar-tools">
+      <h2 class="md-flex">Overall Performance At Various Difficulty Levels</h2>
+    </div>
+  </md-toolbar>
+    <md-card-content>
+      <table layout-fill>
+        <thead>
+          <tr>
+            <th>Questions</th>
+            <th>Correct</th>
+            <th>Incorrect</th>
+            <th>Unattempted</th>
+            <th>Out of</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="(key, difficulty) in $ctrl.diagnostic_test_result.difficulty_breakup">
+            <td>{{key}}</td>
+            <td>{{difficulty.correct}}</td>
+            <td>{{difficulty.incorrect}}</td>
+            <td>{{difficulty.unattempted}}</td>
+            <td>{{difficulty.total}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </md-card-content>
+    <!-- </div>  -->
+  </md-card>
+<!--   <md-card md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h2 class="md-flex">Topicwise Analysis</h2>
+      </div>
+    </md-toolbar>
+    <md-card-content>
+      <div flex-xs="" flex-gt-xs="50" layout="column" ng-repeat="(key, stream) in $ctrl.diagnostic_test_result.result.streams">
+        <table  layout-fill>
+          <thead>
+            <tr><th>{{stream.other_details.stream_name}}</th></tr>
+          </thead>
+          
+          <tbody>
+            <tr ng-repeat="(key, topic) in stream.second_topics">
+              <td style="width:70%">
+                <div class="pbar">
+                  <div class="side1" aria-valuemax="100" style=" width: {{topic.score/10}}%;background-color:teal">{{topic.score/1000 | number : 2}}</div>
+                </div>
+              </td>
+              <td><span>{{topic.second_topic_name}}</span></td>
+            </tr>
+          </tbody>
+        
+        </table>
+      </div>
+    </md-card-content>
+  </md-card> -->
+  <md-card md-theme-watch="" >
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h2 class="md-flex">Question Analysis</h2>
+      </div>
+    </md-toolbar>
+    <md-card-content>
+      <table   layout-fill>
+          <thead>
+            <tr>
+              <th>Q. No.</th>
+              <th>Chapter</th>
+              <th>Topic</th>
+              <th>Difficulty Type</th>
+              <th>Your Response</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr ng-repeat="(key, question) in $ctrl.diagnostic_test_result.question_analysis">
+              <td>{{question.index}}</td>
+              <td>{{question.chapter}}</td>
+              <td>{{question.second_topic}}</td>
+              <td>{{question.difficulty}}</td>
+              <td>{{attemptNames[question.attempt]}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-check" aria-hidden="true"></i></td>
+            </tr>
+          </tbody>
+        
+        </table>
+      </md-card-content>
+    </md-card>
+    <md-card md-theme-watch="" >
+    </md-card>
+  </div>
 </md-content>
 
 
-
-  <div class="row" >
-    <div class="col l4 m12 s12" ng-repeat="(key, chapter) in $ctrl.diagnostic_test_result.result.chapters">        
-      <div class="card green lighten-3 z-depth-2">
-        <div class="card-content black-text">
-          <span class="card-title activator">chapter.name}}</span>
-          <p><a  class="black-text"><h4>chapter.average_score | number : 2}}</h4></a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<div class="z-depth-1">
-<div class="container" style="width:96%">
-<h3 class="underline">SPI</h3>
-<p >SPI is Success Potential Index rated between 0 and 1000. It determines the relative chances of a candidate to clear the examination. The score of 1000 means he has the highest chances of clearing the examination while 0 means that he has the lowest chance of clearing the examination.</p>
-<br />
-</div>
-</div>
-<br />
-<div class="z-depth-2">
-  <div class="container" style="width:96%">
-    <br />
-    <h3 class="underline">Reso Tip</h3>
-    <p>$ctrl.diagnostic_test_result.weak_entity.entity_type}}, you need to work on the following</p>
-    <ul class="collection with-header">
-      <li  ng-repeat="(key, entity) in $ctrl.diagnostic_test_result.weak_entity.entity_list" class="collection-header"><h4>entity.name}}</h4></li>     
-    </ul>
-  <br />
-  </div>
-</div>
-<br /><br />
-<a href="analysis.php" style="font-size:12px;padding-left:10px;padding-left:10px" class="teal btn left screen_only">Start Test<i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-<div class="z-depth-2">
-  <h5 class="teal white-text" style="padding:10px;margin-bottom:0px">Overall Performance At Various Difficulty Levels</h5>
-  <table class="bordered centered responsive-table">
-         
-    <thead class="grey lighten-2">
-      <tr>
-        <th>Questions</th>
-        <th>Correct</th>
-        <th>Out of</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="(key, difficulty) in $ctrl.diagnostic_test_result.difficulty_breakup">
-        <td>key}}</td>
-        <td>difficulty.correct}}</td>
-        <td>difficulty.count}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<br /><br />
-<div class="z-depth-2">
-<h5 class="teal white-text" style="padding:10px;margin-bottom:0px">Topicwise Analysis</h5>
-
-
-<div class="z-depth-2 break" ng-repeat="(key, stream) in $ctrl.diagnostic_test_result.result.streams">
-<table>
-       
-    <thead class="grey lighten-3">
-          <tr>
-      <th colspan="2"><div class="row" style="margin-bottom:0px"><div class="col l6  m6 s12"><h5 style="float:left">stream.other_details.stream_name}}</h5></div><div class="col l6  m6 s12" style="padding-top:20px"> 
-           <div class="row strong_weak_average_div" style="margin-bottom:0px">
-                <div class="col s4">
-                    <span style="display:inline-block;background:teal;width:10px; height:10px;"></span>
-                    <span style="font-size:12px">STRONG</span>
-                </div>
-                <div class="col s4">
-                    <span style="display:inline-block;background:orange;width:10px; height:10px;"></span>
-                    <span style="font-size:12px">AVERAGE</span>
-                </div>
-                <div class="col s4">
-                    <span style="display:inline-block;background:#E50000;width:10px; height:10px;"></span>
-                    <span style="font-size:12px">WEAK(LOW SCORE)</span>
-                </div>
-              
-            </div>
-              
-            </div>
-        </div></div></th>
-      </tr>
-      </thead>
-     <tbody>
-
-<tr ng-repeat="(key, topic) in stream.second_topics">
-<td style="width:70%">
-<div class="pbar">
-
-<div class="side1" aria-valuemax="100" style=" width: topic.score/10}}%;background-color:teal">
-topic.score/1000 | number : 2}}</div>
-
-
-</div>
-</td>
-<td>
-<span>
-topic.second_topic_name}}</span>
-</td>
-</tr>
-
-</tbody>
-</table>
-</div>
-
-<br /><br />
-<table class="bordered centered">
-<thead class="white-text teal">
-<tr>
-<th>Q. No.</th>
-<th>Topic</th>
-<th>Subject</th>
-<th>Difficulty Type</th>
-<th>Your Response</th>
-</tr>
-</thead>
-<tbody>
-  <tbody>
-  <tr style='background:#E5E7E9' ng-repeat="(key, question) in $ctrl.diagnostic_test_result.question_analysis">
-    <td>question.index}}</td><td>question.chapter}}</td><td>question.second_topic}}</td><td>question.difficulty}}</td><td>question.attempt}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-check" aria-hidden="true"></i>
-  </td>
-  </tr>
-  </tbody>
-</table>
-</div>
-
-
-<!-- Original Materialize code -->
-<!--
-<div class="container"> 
-  <div class="row" >
-    <div class="col l4 m12 s12" ng-repeat="(key, stream) in $ctrl.diagnostic_test_result.result.streams">
-      <div class="card green lighten-3">
-        <div class="card-content blue lighten-4  z-depth-2" style="padding:10px">
-          <span class="card-title activator black-text">{{stream.other_details.stream_name}}</span>
-          <p><a  class="black-text"><h4>Score: {{stream.other_details.average_score | number : 2}}</h4></a></p>
-        </div>     
-      </div>
-    </div>
-  </div>
-
-  <div class="row" >
-    <div class="col l4 m12 s12" ng-repeat="(key, chapter) in $ctrl.diagnostic_test_result.result.chapters">        
-      <div class="card green lighten-3 z-depth-2">
-        <div class="card-content black-text">
-          <span class="card-title activator">{{chapter.name}}</span>
-          <p><a  class="black-text"><h4>{{chapter.average_score | number : 2}}</h4></a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<div class="z-depth-1">
-<div class="container" style="width:96%">
-<h3 class="underline">SPI</h3>
-<p >SPI is Success Potential Index rated between 0 and 1000. It determines the relative chances of a candidate to clear the examination. The score of 1000 means he has the highest chances of clearing the examination while 0 means that he has the lowest chance of clearing the examination.</p>
-<br />
-</div>
-</div>
-<br />
-<div class="z-depth-2">
-  <div class="container" style="width:96%">
-    <br />
-    <h3 class="underline">Reso Tip</h3>
-    <p>{{$ctrl.diagnostic_test_result.weak_entity.entity_type}}, you need to work on the following</p>
-    <ul class="collection with-header">
-      <li  ng-repeat="(key, entity) in $ctrl.diagnostic_test_result.weak_entity.entity_list" class="collection-header"><h4>{{entity.name}}</h4></li>     
-    </ul>
-  <br />
-  </div>
-</div>
-<br /><br />
-<a href="analysis.php" style="font-size:12px;padding-left:10px;padding-left:10px" class="teal btn left screen_only">Start Test<i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-<div class="z-depth-2">
-  <h5 class="teal white-text" style="padding:10px;margin-bottom:0px">Overall Performance At Various Difficulty Levels</h5>
-  <table class="bordered centered responsive-table">
-         
-    <thead class="grey lighten-2">
-      <tr>
-        <th>Questions</th>
-        <th>Correct</th>
-        <th>Out of</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="(key, difficulty) in $ctrl.diagnostic_test_result.difficulty_breakup">
-        <td>{{key}}</td>
-        <td>{{difficulty.correct}}</td>
-        <td>{{difficulty.count}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<br /><br />
-<div class="z-depth-2">
-<h5 class="teal white-text" style="padding:10px;margin-bottom:0px">Topicwise Analysis</h5>
-
-
-<div class="z-depth-2 break" ng-repeat="(key, stream) in $ctrl.diagnostic_test_result.result.streams">
-<table>
-       
-    <thead class="grey lighten-3">
-          <tr>
-      <th colspan="2"><div class="row" style="margin-bottom:0px"><div class="col l6  m6 s12"><h5 style="float:left">{{stream.other_details.stream_name}}</h5></div><div class="col l6  m6 s12" style="padding-top:20px"> 
-           <div class="row strong_weak_average_div" style="margin-bottom:0px">
-                <div class="col s4">
-                    <span style="display:inline-block;background:teal;width:10px; height:10px;"></span>
-                    <span style="font-size:12px">STRONG</span>
-                </div>
-                <div class="col s4">
-                    <span style="display:inline-block;background:orange;width:10px; height:10px;"></span>
-                    <span style="font-size:12px">AVERAGE</span>
-                </div>
-                <div class="col s4">
-                    <span style="display:inline-block;background:#E50000;width:10px; height:10px;"></span>
-                    <span style="font-size:12px">WEAK(LOW SCORE)</span>
-                </div>
-              
-            </div>
-              
-            </div>
-        </div></div></th>
-      </tr>
-      </thead>
-     <tbody>
-
-<tr ng-repeat="(key, topic) in stream.second_topics">
-<td style="width:70%">
-<div class="pbar">
-
-<div class="side1" aria-valuemax="100" style=" width: {{topic.score/10}}%;background-color:teal">
-{{topic.score/1000 | number : 2}}</div>
-
-
-</div>
-</td>
-<td>
-<span>
-{{topic.second_topic_name}}</span>
-</td>
-</tr>
-
-</tbody>
-</table>
-</div>
-
-<br /><br />
-<table class="bordered centered">
-<thead class="white-text teal">
-<tr>
-<th>Q. No.</th>
-<th>Topic</th>
-<th>Subject</th>
-<th>Difficulty Type</th>
-<th>Your Response</th>
-</tr>
-</thead>
-<tbody>
-  <tbody>
-  <tr style='background:#E5E7E9' ng-repeat="(key, question) in $ctrl.diagnostic_test_result.question_analysis">
-    <td>{{question.index}}</td><td>{{question.chapter}}</td><td>{{question.second_topic}}</td><td>{{question.difficulty}}</td><td>{{question.attempt}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-check" aria-hidden="true"></i>
-  </td>
-  </tr>
-  </tbody>
-</table>
-</div>

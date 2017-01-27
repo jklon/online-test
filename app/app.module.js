@@ -7,5 +7,6 @@ angular.module('phonecatApp', [
   'core',
   'onlineTest',
   'ngAria',
-  'ngMaterial'
+  'ngMaterial',
+  'chart.js'
 ]);
