@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<!-- <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">SuperMath</a>
@@ -45,4 +45,52 @@
       }
     });
   });
-</script>
+</script> -->
+
+<div layout="column"  ng-cloak>
+
+  <md-toolbar flex>
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" ng-click="$ctrl.toggleSidenav()">
+        <md-icon class="material-icons" aria-label="Menu">menu</md-icon>
+      </md-button>
+      <h3>SuperMath</h3>
+    </div>
+  </md-toolbar>
+
+
+  <section layout="row" flex>
+
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+
+      <md-content layout-padding="">
+        <md-button ng-click="close()" class="md-primary" hide-gt-md="">
+          Close Sidenav Left
+        </md-button>
+        <p hide="" show-gt-md="">
+          This sidenav is locked open on your device. To go back to the default behavior,
+          narrow your display.
+        </p>
+      </md-content>
+
+    </md-sidenav>
+
+      <md-content flex layout-padding>
+
+        <div layout="column" layout-align="top center" id="main-body">
+          <div ng-view></div>
+        </div>
+
+      </md-content>
+
+
+  </section>
+
+</div>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+-->
+
+

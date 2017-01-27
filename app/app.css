@@ -5,11 +5,11 @@
   padding: 15px
 }
 
-#main-body{
+/*#main-body{
   margin-top: 69px;
   padding: 20px;
   padding-top: 0;
-}
+}*/
 
 .navbar-default{
   background-color: #3a8a92;
@@ -20,11 +20,11 @@
 .navbar-default .navbar-toggle .icon-bar {
     background-color: white;
 }
-@media screen and (min-width: 751px) {
+/*@media screen and (min-width: 751px) {
     #main-body {
       margin-left: 200px
     }
-}
+}*/
 /*CSS FOR NAV BAR WITH SLIDER FROM SIDE*/
 #sidebar-wrapper {
   top: 49px;

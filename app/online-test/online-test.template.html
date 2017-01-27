@@ -3,13 +3,11 @@
     display: none;
   }
 </style>
+
 <div id="test-container">
-  <div class="row">
-
-    <div class="col-xs-12">
 
 
-      <form class="form-horizontal" ng-submit="$ctrl.submitStudentForm()" role="form">
+      <!-- <form class="form-horizontal" ng-submit="$ctrl.submitStudentForm()" role="form">
         
         <div class="form-group">
           <label class="col-sm-3 control-label">Name</label>
@@ -51,9 +49,81 @@
         <input type="submit" value="Start" class="btn btn-primary col-sm-offset-3" /> 
         <input type="reset" value="Reset" ng-click="$ctrl.resetForm()" class="btn" /> <br/>
 
+      </form> -->
+
+
+
+      <form ng-submit="$ctrl.submitStudentForm()">
+<!--         <div layout-gt-xs="row">
+          <md-input-container>
+            <label>Enter date</label>
+            <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+          </md-input-container>
+        </div> -->
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>First name</label>
+            <input ng-model="$ctrl.user.first_name">
+          </md-input-container>
+<!--           <md-input-container class="md-block" flex-gt-sm>
+            <label>Long Last Name That Will Be Truncated And 3 Dots (Ellipsis) Will Appear At The End</label>
+            <input ng-model="theMax">
+          </md-input-container> -->
+        </div>
+        <md-input-container class="md-block">
+          <label>Phone Number</label>
+          <input ng-model="$ctrl.user.number">
+        </md-input-container>
+
+
+        <div layout-gt-sm="row">
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Standard</label>
+            <md-select ng-model="$ctrl.standard_id">
+              <md-option ng-repeat="standard in $ctrl.standards" value="{{standard.standard_id}}">
+                {{standard.name}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+<!--           <md-input-container class="md-block" flex-gt-sm>
+            <label>Postal Code</label>
+            <input name="postalCode" ng-model="user.postalCode" placeholder="12345"
+                   required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+            <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
+              <div ng-message="required" class="my-message">You must supply a postal code.</div>
+              <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+                code.
+              </div>
+              <div ng-message="md-maxlength" class="my-message">
+                Don't use the long version silly...we don't need to be that specific...
+              </div>
+            </div>
+          </md-input-container> -->
+
+        </div>
+
+        <div layout-gt-sm="row">
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Stream</label>
+            <md-select ng-model="$ctrl.stream">
+              <md-option ng-repeat="stream in $ctrl.streams[$ctrl.standard_id]" value="{{stream.id}}">
+                {{stream.name}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+        </div>
+        <div layout-gt-sm="row">
+          <md-button type="submit" class="md-raised md-primary">Start</md-button>
+          <md-button type="reset" class="md-raised" ng-click="$ctrl.resetForm()">Reset</md-button>
+        </div>
+<!--         <md-input-container class="md-block">
+          <label>Biography</label>
+          <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container> -->
       </form>
 
-
-    </div>
-  </div>
 </div>
