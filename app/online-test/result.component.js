@@ -76,15 +76,15 @@ angular.
         $scope.topic_time_labels =$.map(result_json.result.second_topics, function(el) { return el.name; });
         $scope.topic_time_data = [
           $.map(result_json.result.second_topics, function(el) { return el.average_time_spent; }),
-          $.map(result_json.result.second_topics, function(el) { return el.average_score; })
+          $.map(result_json.result.second_topics, function(el) { return el.average_score/100; })
         ];  
         $scope.chapter_time_labels =$.map(result_json.result.chapters, function(el) { return el.name; });
         $scope.chapter_time_data = [
           $.map(result_json.result.second_topics, function(el) { return el.average_time_spent; }),
-          $.map(result_json.result.second_topics, function(el) { return el.average_score; })
+          $.map(result_json.result.second_topics, function(el) { return el.average_score/100; })
         ]; 
         $(document).ready(function(){
-          $("#sidebar-wrapper").html("").html('<button class="btn btn-default" id="test_retake_btn" type="button">Start Test</button>')
+          $("#sidebar-wrapper").html("").html('<md-button type="submit" class="md-raised md-primary" id="test_retake_btn" >Start</md-button>')
           $("#test_retake_btn").on("click", function(){
             console.log("clicked");
             DiagnosticTest.clearAllData();
