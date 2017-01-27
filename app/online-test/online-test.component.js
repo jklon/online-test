@@ -63,7 +63,9 @@ angular.
         self.standard_id = null
         self.stream_id = null
         self.subject_id = '';
+        
 
+        
         $(document).ready(function(){
           $("#sidebar-wrapper").html("")
         })

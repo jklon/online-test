@@ -108,7 +108,9 @@ angular.
                 DiagnosticTest.setData('diagnostic_test_result', {data:{
                   personalized_test_remaining: data.personalized_test_remaining,
                   result: data.result,
-                  weak_entity: data.weak_entity 
+                  weak_entity: data.weak_entity,
+                  difficulty_breakup: data.difficulty_breakup,
+                  question_analysis: data.question_analysis, 
                 }})
                 $location.url('/online-test/result')
               })
