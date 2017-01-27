@@ -101,7 +101,7 @@ angular.
             for (var i=0; i<self.fetched_questions.length;i++){
               html += '<span id="side_panel_question_'+i+'">'+(i+1)+'</span>'
             }
-            html += '<br><br><button id="test_submit_btn" type="button" class="btn btn-success">Submit test</button>'
+            html += '<br><br><md-button id="test_submit_btn" class="md-raised md-primary" disabled>Submit</md-button>'
             $("#side-panel-questions").html("").append(html)
             $("#test_submit_btn").on("click", function(){
               DiagnosticTest.http.submit_test(self.diagnostic_test_data, function(data){
@@ -124,7 +124,9 @@ angular.
             })
           })
           $("#start-test-btn").prop("disabled", false).on("click", function(){
+            console.log("Starting the test now");
             self.change_question(0);
+            $("#attempt-overlay").addClass("hidden");
           })     
         }
 

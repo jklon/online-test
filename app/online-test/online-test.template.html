@@ -7,106 +7,34 @@
 <div id="test-container">
 
 
-      <!-- <form class="form-horizontal" ng-submit="$ctrl.submitStudentForm()" role="form">
-        
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Name</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" ng-model="$ctrl.user.first_name" required/>
-          </div>
-          <div class="col-sm-3"></div>
-        </div>
+      <form ng-submit="$ctrl.submitStudentForm()" layout="column">
 
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Number</label>
-          <div class="col-sm-6">
-            <input type="num" class="form-control" ng-model="$ctrl.user.number" required/>
-          </div>
-          <div class="col-sm-3"></div>
-        </div>
-
-
-        <div class="form-group {{$ctrl.standard_form_class}}">
-          <label class="col-sm-3 control-label">Standard</label>
-          <div class="col-sm-2">
-            <select class="form-control" ng-model="$ctrl.standard_id" required>
-              <option ng-repeat="standard in $ctrl.standards" value="{{standard.standard_id}}">{{standard.name}}</option>
-            </select>
-          </div>
-          <div class="col-sm-7"></div>
-        </div>
-        <div class="form-group {{$ctrl.standard_form_class}}">
-          <label class="col-sm-3 control-label">Stream</label>
-          <div class="col-sm-2">
-            <select class="form-control" ng-model="$ctrl.stream_id" required>
-              <option ng-repeat="stream in $ctrl.streams[$ctrl.standard_id]" value="{{stream.id}}">{{stream.name}}</option>
-            </select>
-          </div>
-          <div class="col-sm-7"></div>
-        </div>
-        
-
-        <input type="submit" value="Start" class="btn btn-primary col-sm-offset-3" /> 
-        <input type="reset" value="Reset" ng-click="$ctrl.resetForm()" class="btn" /> <br/>
-
-      </form> -->
-
-
-
-      <form ng-submit="$ctrl.submitStudentForm()">
-<!--         <div layout-gt-xs="row">
-          <md-input-container>
-            <label>Enter date</label>
-            <md-datepicker ng-model="user.submissionDate"></md-datepicker>
-          </md-input-container>
-        </div> -->
-        <div layout-gt-sm="row">
+       
           <md-input-container class="md-block" flex-gt-sm>
             <label>First name</label>
-            <input ng-model="$ctrl.user.first_name">
+            <input ng-model="$ctrl.user.first_name" required>
           </md-input-container>
-<!--           <md-input-container class="md-block" flex-gt-sm>
-            <label>Long Last Name That Will Be Truncated And 3 Dots (Ellipsis) Will Appear At The End</label>
-            <input ng-model="theMax">
-          </md-input-container> -->
-        </div>
-        <md-input-container class="md-block">
-          <label>Phone Number</label>
-          <input ng-model="$ctrl.user.number">
-        </md-input-container>
+       
 
-
-        <div layout-gt-sm="row">
-
+        
           <md-input-container class="md-block" flex-gt-sm>
-            <label>Standard</label>
-            <md-select ng-model="$ctrl.standard_id">
-              <md-option ng-repeat="standard in $ctrl.standards" value="{{standard.standard_id}}">
-                {{standard.name}}
-              </md-option>
-            </md-select>
+            <label>Phone Number</label>
+            <input ng-model="$ctrl.user.number">
           </md-input-container>
+        
+          <div class="{{$ctrl.standard_form_class}}">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Standard</label>
+              <md-select ng-model="$ctrl.standard_id">
+                <md-option ng-repeat="standard in $ctrl.standards" value="{{standard.standard_id}}">
+                  {{standard.name}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+          </div>
 
-<!--           <md-input-container class="md-block" flex-gt-sm>
-            <label>Postal Code</label>
-            <input name="postalCode" ng-model="user.postalCode" placeholder="12345"
-                   required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
-            <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
-              <div ng-message="required" class="my-message">You must supply a postal code.</div>
-              <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
-                code.
-              </div>
-              <div ng-message="md-maxlength" class="my-message">
-                Don't use the long version silly...we don't need to be that specific...
-              </div>
-            </div>
-          </md-input-container> -->
-
-        </div>
-
-        <div layout-gt-sm="row">
-
-          <md-input-container class="md-block" flex-gt-sm>
+          <div class="{{$ctrl.standard_form_class}}">
+          <md-input-container class="md-block {{$ctrl.standard_form_class}}" flex-gt-sm>
             <label>Stream</label>
             <md-select ng-model="$ctrl.stream">
               <md-option ng-repeat="stream in $ctrl.streams[$ctrl.standard_id]" value="{{stream.id}}">
@@ -114,8 +42,25 @@
               </md-option>
             </md-select>
           </md-input-container>
+          </div>
+        
 
-        </div>
+
+        <!--           <md-input-container class="md-block" flex-gt-sm>
+                    <label>Postal Code</label>
+                    <input name="postalCode" ng-model="user.postalCode" placeholder="12345"
+                           required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+                    <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
+                      <div ng-message="required" class="my-message">You must supply a postal code.</div>
+                      <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+                        code.
+                      </div>
+                      <div ng-message="md-maxlength" class="my-message">
+                        Don't use the long version silly...we don't need to be that specific...
+                      </div>
+                    </div>
+                  </md-input-container> -->
+
         <div layout-gt-sm="row">
           <md-button type="submit" class="md-raised md-primary">Start</md-button>
           <md-button type="reset" class="md-raised" ng-click="$ctrl.resetForm()">Reset</md-button>
@@ -126,79 +71,7 @@
         </md-input-container> -->
       </form>
 
-
-
-
     </div>
   </div>
-  <md-content class="md-padding" layout-xs="column" layout="row">
-    <div flex-xs="" flex-gt-xs="50" layout="column">
-      <md-card md-theme="dark-grey" md-theme-watch="">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Card with image</span>
-            <span class="md-subhead">Large</span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-lg card-media"></div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button>Action 1</md-button>
-          <md-button>Action 2</md-button>
-        </md-card-actions>
-      </md-card>
-      <md-card md-theme="dark-orange" md-theme-watch="">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Card with image</span>
-            <span class="md-subhead">Extra Large</span>
-          </md-card-title-text>
-        </md-card-title>
-        <md-card-content layout="row" layout-align="space-between">
-          <div class="md-media-xl card-media"></div>
 
-          <md-card-actions layout="column">
-            <md-button class="md-icon-button" aria-label="Favorite">
-              <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
-            </md-button>
-            <md-button class="md-icon-button" aria-label="Settings">
-              <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-            </md-button>
-            <md-button class="md-icon-button" aria-label="Share">
-              <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
-            </md-button>
-          </md-card-actions>
-        </md-card-content>
-      </md-card>
-    </div>
-    <div flex-xs="" flex-gt-xs="50" layout="column">
-      <md-card md-theme="dark-purple" md-theme-watch="">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Card with image</span>
-            <span class="md-subhead">Small</span>
-          </md-card-title-text>
-
-      </md-card>
-      <md-card md-theme="dark-blue" md-theme-watch="">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Card with image</span>
-            <span class="md-subhead">Medium</span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-md card-media"></div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button>Action 1</md-button>
-          <md-button>Action 2</md-button>
-        </md-card-actions>
-      </md-card>
-      <div layout="" layout-padding="" layout-align="center end" style="height:200px">
-        <md-checkbox ng-model="showDarkTheme">Use 'Dark' Themed Cards</md-checkbox>
-      </div>
-    </div>
-  </md-content>
 </div>
