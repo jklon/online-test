@@ -17,8 +17,8 @@
 </style>
 
 <div id="test-container" layout="column" layout-align="top center">
-  <p ng-click="$ctrl.show_data();" >See the data at Attemp controller</p>
-  <p><span math-jax-bind="$ctrl.fetched_questions[$ctrl.current_question_index.data].question_text" ></span></p>
+  <!-- <p ng-click="$ctrl.show_data();" >See the data at Attemp controller</p> -->
+  <p class="question-text" ><span math-jax-bind="$ctrl.fetched_questions[$ctrl.current_question_index.data].question_text" ></span></p>
 
   <div ng-repeat="answer in $ctrl.fetched_questions[$ctrl.current_question_index.data].answers">
     <md-button class="answer-button {{$ctrl.diagnostic_test_data.diagnostic_test.short_choice_questions[$ctrl.fetched_questions[$ctrl.current_question_index.data].short_choice_question_id].answer_selected == answer.short_choice_answer_id ? 'selected-option' : 'unselected-option'}}"  ng-click="$ctrl.select_answer($ctrl.fetched_questions[$ctrl.current_question_index.data].short_choice_question_id, $index)"><span math-jax-bind="answer.answer_text" ></span></md-button>

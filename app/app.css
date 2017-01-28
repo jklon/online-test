@@ -4,7 +4,9 @@
 #test-container{
   padding: 15px
 }
-
+*:focus{
+  outline: none;
+}
 /*#main-body{
   margin-top: 69px;
   padding: 20px;
@@ -48,9 +50,6 @@
   font-weight: bold;
   color: #848484;
 }
-#sidebar-question-index p {
-  color: white
-}
 
 #test_submit_btn{
   display: block;
@@ -62,7 +61,7 @@
 /*CSS FOR NAVBAR WITH SLIDER FROM SIDE ENDS HERE*/
 
 .answer-button{
-  min-width: 200px;
+  min-width: 370px;
   text-align: center;
   min-height: 60px;
   
@@ -72,4 +71,8 @@
 }
 .unselected-option{
   background-color: #e5e5e5;
+}
+
+.question-text{
+  min-height: 50px;
 }
