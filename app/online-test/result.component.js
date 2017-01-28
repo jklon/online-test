@@ -6,7 +6,7 @@ angular.
   component('result', {
     templateUrl: 'online-test/result.template.html',
     controller: ['DiagnosticTest', '$scope', '$location',
-      function ResultController(DiagnosticTest, $scope, $location) {        
+      function ResultController(DiagnosticTest, $scope, $location,$mdDialog) {        
         this.diagnostic_test_result = DiagnosticTest.getData('diagnostic_test_result')
         this.color_labels = ["LightGoldenRodYellow", "Aquamarine", "DarkGrey", "DeepSkyBlue", "FloralWhite", "LavenderBlush"]
         console.log(this.diagnostic_test_result); 
@@ -53,8 +53,8 @@ angular.
         $scope.series = Object.keys(result_json.difficulty_breakup.total);
 
         $scope.data = [
-          $.map(result_json.difficulty_breakup, function(el) { return el.total; }),
-          $.map(result_json.difficulty_breakup, function(el) { return el.correct; })
+          Object.values(result_json.difficulty_breakup).map( function(el) { return el.total; }),
+          Object.values(result_json.difficulty_breakup).map( function(el) { return el.correct; })
         ]; 
         console.log($scope.labels);
         console.log($scope.series);
@@ -65,24 +65,36 @@ angular.
           result_json.difficulty_breakup.total.correct,
           result_json.difficulty_breakup.total.unattempted ];
         //Topicwise Analysis Graph section
-        var topics = $.map(result_json.result.streams, function(el) { return el.second_topics; });
-        $scope.topicwise_labels = $.map(topics[0], function(el) { return el.second_topic_name; });
+        var topics = Object.values(result_json.result.streams).map( function(el) { return el.second_topics; });
+        $scope.topicwise_labels = Object.values(topics[0]).map( function(el) { return el.second_topic_name; });
         $scope.topicwise_series = ['Correct'];
 
         $scope.topicwise_data = [
-          $.map(topics[0], function(el) { return el.score; })
+          Object.values(topics[0]).map( function(el) { return el.score; })
         ];  
         //time Analysis
-        $scope.topic_time_labels =$.map(result_json.result.second_topics, function(el) { return el.name; });
+        $scope.topic_time_labels =Object.values(result_json.result.second_topics).map( function(el) { return el.name; });
         $scope.topic_time_data = [
-          $.map(result_json.result.second_topics, function(el) { return el.average_time_spent; }),
-          $.map(result_json.result.second_topics, function(el) { return el.average_score/100; })
+          Object.values(result_json.result.second_topics).map( function(el) { return el.average_time_spent; }),
+          Object.values(result_json.result.second_topics).map( function(el) { return el.average_score/100; })
         ];  
-        $scope.chapter_time_labels =$.map(result_json.result.chapters, function(el) { return el.name; });
+        $scope.chapter_time_labels =Object.values(result_json.result.chapters).map( function(el) { return el.name; });
         $scope.chapter_time_data = [
-          $.map(result_json.result.second_topics, function(el) { return el.average_time_spent; }),
-          $.map(result_json.result.second_topics, function(el) { return el.average_score/100; })
+          Object.values(result_json.result.second_topics).map( function(el) { return el.average_time_spent; }),
+          Object.values(result_json.result.second_topics).map( function(el) { return el.average_score/100; })
         ]; 
+          $scope.showDifficultyInfo = function(ev) {
+            $mdDialog.show(
+              $mdDialog.alert()
+                .clickOutsideToClose(true)
+                .title('This is an alert title')
+                .textContent('You can specify some description text in here.')
+                .ariaLabel('Alert Dialog Demo')
+                .ok('Got it!')
+                .targetEvent(ev)
+            );
+
+          };
         $(document).ready(function(){
           $("#sidebar-wrapper").html("").html('<md-button type="submit" class="md-raised md-primary" id="test_retake_btn" >Start</md-button>')
           $("#test_retake_btn").on("click", function(){

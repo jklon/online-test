@@ -31,10 +31,15 @@
     <md-toolbar >
       <div class="md-toolbar-tools">
         <h1 class="md-flex">Difficulty Analysis</h1>
+        <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDifficultyInfo($event)" aria-label="Learn More">
+          Learn More
+        </md-button>
       </div>
     </md-toolbar>
-    <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
-
+    <div flex-xs="" flex-gt-xs="50" layout-fill layout-align="center center">
+      <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+    </div>
   </md-card>
 
   <md-card  md-theme-watch="" >
@@ -53,9 +58,9 @@
         <h1 class="md-flex">Topicwise Analysis</h1>
       </div>
     </md-toolbar>
-    
+    <div flex-xs="" flex-gt-xs="50" layout-fill layout-align="center center">
       <canvas id="base" class="chart-horizontal-bar" chart-data="topicwise_data" chart-labels="topicwise_labels" ></canvas> 
-    
+    </div>
   </md-card>
 
   <md-card  md-theme-watch="" >
@@ -64,7 +69,9 @@
         <h1 class="md-flex">Topicwise Time Analysis</h1>
       </div>
     </md-toolbar>
+    <div flex-xs="" flex-gt-xs="50" layout-fill layout-align="center center">
     <canvas id="radar" class="chart chart-radar" chart-data="topic_time_data" chart-options="options" chart-labels="topic_time_labels"></canvas> 
+    </div>
   </md-card>
     <md-card  md-theme-watch="" >
     <md-toolbar >
@@ -72,7 +79,9 @@
         <h1 class="md-flex">Chapterwise Time Analysis</h1>
       </div>
     </md-toolbar>
-    <canvas id="radar" class="chart chart-radar" chart-data="chapter_time_data" chart-options="options" chart-labels="chapter_time_labels"></canvas> 
+    <div flex-xs="" flex-gt-xs="50" layout-fill layout-align="center center">
+      <canvas id="radar" class="chart chart-radar" chart-data="chapter_time_data" chart-options="options" chart-labels="chapter_time_labels"></canvas> 
+    </div>
   </md-card>
     <div flex-xs="" flex-gt-xs="50" layout="column">
       <div flex-xs="" flex-gt-xs="50" layout="row" layout-align="center center">
