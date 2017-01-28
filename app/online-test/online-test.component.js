@@ -66,9 +66,9 @@ angular.
         
 
         
-        $(document).ready(function(){
-          $("#sidebar-wrapper").html("")
-        })
+        // $(document).ready(function(){
+        //   $("#sidebar-wrapper").html("")
+        // })
 
       }
     ]

@@ -13,6 +13,7 @@ angular.
         console.log("This is AttemptController");
         console.log(DiagnosticTest.getAllData())
         var self = this;
+        self.question_status_data = DiagnosticTest.getAllData().question_status_data.data
         self.test_start_text = "Hi " + (DiagnosticTest.getData('user') ? DiagnosticTest.getData('user').first_name : "") + ", We have got a personalized test for you designed to improve your week areas based on your last attempt here :)"  
         if (DiagnosticTest.getData('personalized')){
           var test_params = {
@@ -35,7 +36,11 @@ angular.
           }
         )
 
-        self.current_question_index = 0;
+        self.current_question_index = DiagnosticTest.getAllData().current_question_index;
+
+        this.show_data = function(){
+          console.log(DiagnosticTest.getAllData().current_question_index)
+        }
 
         self.change_question = function(question_index){
           try {
@@ -49,12 +54,13 @@ angular.
           }
 
           if(question_index < self.fetched_questions.length){
-            self.current_question_index = question_index
+            // self.current_question_index = question_index
+            DiagnosticTest.setData('current_question_index', {data:question_index})
             self.reset_timer()
           }
-          self.question_status_data[question_index] = {class:"attempting", attempt:1}
-          DiagnosticTest.setData('question_status_data', {data:self.question_status_data})
-          $("#side_panel_question_"+self.current_question_index).removeClass("untouched").addClass("attempting")
+          // self.question_status_data[question_index] = {class:"attempting"}
+          DiagnosticTest.setQuestionStatus( question_index ,{class:"attempting"})
+          // $("#side_panel_question_"+self.current_question_index).removeClass("untouched").addClass("attempting")
         }
 
         self.reset_timer = function(){
@@ -67,7 +73,7 @@ angular.
         }
 
         self.get_displayed_question_index = function(){
-          return self.current_question_index;
+          return self.current_question_index.data;
         }
 
 
@@ -81,41 +87,43 @@ angular.
             }
           }
           self.fetched_questions = data.questions
-          self.question_status_data = []
+          var temp_question_status_data = []
           $.each(self.fetched_questions, function(key, value) {
-            self.question_status_data.push({class:"untouched"})
+            temp_question_status_data.push({class:"untouched", static_class:"untouched"})
             self.diagnostic_test_data.diagnostic_test.short_choice_questions[value.short_choice_question_id] = {
               question_text: value.question_text,
               attempt_count:0,
-              attempt:self.question_status_data[key].attempt || 0,
+              attempt:temp_question_status_data[key].attempt || 0,
               index: key,
               score: 0,
               time_taken:0,
               selected_answers: {}
             }
           });
-          DiagnosticTest.setData("question_status_data", {data:self.question_status_data})
-          $(document).ready(function(){
-            $("#sidebar-wrapper").html("").html('<div id="sidebar-question-index"><p>Question list</p><div id="side-panel-questions"></div></div>');
-            var html = "";
-            for (var i=0; i<self.fetched_questions.length;i++){
-              html += '<span id="side_panel_question_'+i+'">'+(i+1)+'</span>'
-            }
-            html += '<br><br><md-button id="test_submit_btn" class="md-raised md-primary" disabled>Submit</md-button>'
-            $("#side-panel-questions").html("").append(html)
-            $("#test_submit_btn").on("click", function(){
-              DiagnosticTest.http.submit_test(self.diagnostic_test_data, function(data){
-                DiagnosticTest.setData('diagnostic_test_result', {data:{
-                  personalized_test_remaining: data.personalized_test_remaining,
-                  result: data.result,
-                  weak_entity: data.weak_entity,
-                  difficulty_breakup: data.difficulty_breakup,
-                  question_analysis: data.question_analysis, 
-                }})
-                $location.url('/online-test/result')
-              })
-            })
-          })
+          DiagnosticTest.setData("question_status_data", {data:temp_question_status_data})
+          
+          // $(document).ready(function(){
+          //   $("#sidebar-wrapper").html("").html('<div id="sidebar-question-index"><p>Question list</p><div id="side-panel-questions"></div></div>');
+          //   var html = "";
+          //   for (var i=0; i<self.fetched_questions.length;i++){
+          //     html += '<span id="side_panel_question_'+i+'">'+(i+1)+'</span>'
+          //   }
+          //   html += '<br><br><md-button id="test_submit_btn" class="md-raised md-primary" disabled>Submit</md-button>'
+          //   $("#side-panel-questions").html("").append(html)
+          //   $("#test_submit_btn").on("click", function(){
+          //     DiagnosticTest.http.submit_test(self.diagnostic_test_data, function(data){
+          //       DiagnosticTest.setData('diagnostic_test_result', {data:{
+          //         personalized_test_remaining: data.personalized_test_remaining,
+          //         result: data.result,
+          //         weak_entity: data.weak_entity,
+          //         difficulty_breakup: data.difficulty_breakup,
+          //         question_analysis: data.question_analysis, 
+          //       }})
+          //       $location.url('/online-test/result')
+          //     })
+          //   })
+          // })
+
           $("#side_panel_question_"+self.get_displayed_question_index()).removeClass("untouched").addClass("attempting")
           $("#sidebar-question-index span").on("click",function(event){
             $("#side_panel_question_"+self.get_displayed_question_index()).removeClass("attempting")
@@ -156,10 +164,10 @@ angular.
             }
           }
 
-          self.question_status_data[self.get_displayed_question_index()] = {class:'attempted'}
+          DiagnosticTest.setQuestionStatus(self.get_displayed_question_index(),{class:'attempted', static_class:'attempted'})
           present_question.answer_selected = answer_object.short_choice_answer_id;
           present_question.time_taken += self.get_time_spent();
-          if (self.current_question_index < self.fetched_questions.length){
+          if (self.current_question_index.data < self.fetched_questions.length){
             self.change_question(self.get_displayed_question_index() + 1);
           }
         }
@@ -182,3 +190,17 @@ angular.
     }
   };
 });
+// angular.
+//   module('onlineTest').directive('QuestionStatusBind', function() {
+//   var refresh = function(element) {
+//       MathJax.Hub.Queue(["Typeset", MathJax.Hub, element]);
+//   };
+//   return {
+//     link: function(scope, element, attrs) {
+//       scope.$watch(attrs.mathJaxBind, function(newValue, oldValue) {
+//         element.html(newValue);
+//         refresh(element[0]);
+//       });
+//     }
+//   };
+// });

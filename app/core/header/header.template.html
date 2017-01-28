@@ -14,14 +14,25 @@
 
   <section layout="row" flex style="min-height: 100%">
 
-      <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4" style="min-height: 100%">
+      <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" md-whiteframe="4" style="min-height: 100%">
         <md-content layout-padding="">
-          <div id="sidebar-wrapper"></div>
+          <div id="sidebar-wrapper">
+            <div id="sidebar-question-index">
+              <p>Question List</p>
+              <div id="side-panel-questions">
+                <span class="{{item.class}}" ng-repeat="item in $ctrl.diagnostic_test_data.question_status_data.data track by $index" ng-click="$ctrl.change_question($index)">
+                  {{$index + 1}}
+                </span>
+              </div>
+            </div>
+          </div>
         </md-content>
+        <md-button>Submit</md-button>
       </md-sidenav>
 
 
       <md-content flex layout-padding>
+        <p ng-click="$ctrl.show_data();" >See the question status data</p>
         <div layout="column" id="main-body">
           <div ng-view></div>
         </div>
