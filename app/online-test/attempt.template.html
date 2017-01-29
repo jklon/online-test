@@ -62,7 +62,7 @@
     <p class="question-text" ><span math-jax-bind="$ctrl.fetched_questions[$ctrl.current_question_index.data].question_text" ></span></p>
     <img id="question-image" ng-hide="$ctrl.fetched_questions[$ctrl.current_question_index.data].question_image == ''" src="{{$ctrl.fetched_questions[$ctrl.current_question_index.data].question_image}}" ></img>
     <div ng-repeat="answer in $ctrl.fetched_questions[$ctrl.current_question_index.data].answers">
-      <md-button class="answer-button {{$ctrl.diagnostic_test_data.diagnostic_test.short_choice_questions[$ctrl.fetched_questions[$ctrl.current_question_index.data].short_choice_question_id].answer_selected == answer.short_choice_answer_id ? 'selected-option' : 'unselected-option'}}"  ng-click="$ctrl.select_answer($ctrl.fetched_questions[$ctrl.current_question_index.data].short_choice_question_id, $index)"><span math-jax-bind="answer.answer_text" ></span></md-button>
+      <md-button class="answer-button {{$ctrl.diagnostic_test_data.diagnostic_test.short_choice_questions[$ctrl.index_id_data[$ctrl.current_question_index.data]].answer_selected == answer.short_choice_answer_id ? 'selected-option' : 'unselected-option'}}"  ng-click="$ctrl.select_answer($ctrl.index_id_data[$ctrl.current_question_index.data], $index)"><span math-jax-bind="answer.answer_text" ></span></md-button>
     </div>
   </div>
 </div>

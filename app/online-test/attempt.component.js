@@ -86,6 +86,7 @@ angular.
 
 
         self.build_diagnostic_test_data = function(data){
+          self.index_id_data = []
           self.diagnostic_test_data = {
             user: DiagnosticTest.getData("user"),
             diagnostic_test: {
@@ -98,6 +99,7 @@ angular.
           var temp_question_status_data = []
           $.each(self.fetched_questions, function(key, value) {
             temp_question_status_data.push({class:"untouched", static_class:"untouched"})
+            self.index_id_data.push(value.short_choice_question_id);
             self.diagnostic_test_data.diagnostic_test.short_choice_questions[value.short_choice_question_id] = {
               question_text: value.question_text,
               attempt_count:0,
