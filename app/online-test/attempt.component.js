@@ -188,9 +188,13 @@ angular.
   return {
     link: function(scope, element, attrs) {
       $interval(function(){
-        if (scope.$ctrl.diagnostic_test_data){
+        if (scope.$ctrl.diagnostic_test_data ){
           var time_spent = scope.$ctrl.get_time_spent() + scope.$ctrl.diagnostic_test_data.diagnostic_test.short_choice_questions[attrs['animatedTimer']].time_taken
-          element.css('height', ((time_spent/90)*100).toString() + "%")
+          if (time_spent <= 90){
+            element.css('height', ((time_spent/90)*100).toString() + "%")
+          } else {
+            element.css('height', "100%")
+          }
         }
       },1000, 0);
     }
