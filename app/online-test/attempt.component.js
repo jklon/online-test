@@ -13,7 +13,8 @@ angular.
         console.log("This is AttemptController");
         console.log(DiagnosticTest.getAllData())
         var self = this;
-        self.question_status_data = DiagnosticTest.getAllData().question_status_data.data
+        self.show_all_questions = false;
+        self.question_status_data = DiagnosticTest.getAllData().question_status_data
         self.test_start_text = "Hi " + (DiagnosticTest.getData('user') ? DiagnosticTest.getData('user').first_name : "") + ", We have got a personalized test for you designed to improve your week areas based on your last attempt here :)"  
         if (DiagnosticTest.getData('personalized')){
           var test_params = {
@@ -38,30 +39,24 @@ angular.
 
         self.current_question_index = DiagnosticTest.getAllData().current_question_index;
 
-        this.show_data = function(){
-          console.log(DiagnosticTest.getAllData().current_question_index)
+        self.toggleAllQuestionView = function(){
+          self.show_all_questions = !show_all_questions
         }
 
-        // self.change_question = function(question_index){
-        //   try {
-        //     if (typeof question_index == "string"){
-        //       question_index = parseInt(question_index)
-        //       console.log(question_index)
-        //     }
-        //   } catch(err){
-        //     console.log(err)
-        //     return
-        //   }
+        this.show_data = function(){
+          console.log(self.question_status_data)
+        }
 
-        //   if(question_index < self.fetched_questions.length){
-        //     // self.current_question_index = question_index
-        //     DiagnosticTest.setData('current_question_index', {data:question_index})
-        //     self.reset_timer()
-        //   }
-        //   // self.question_status_data[question_index] = {class:"attempting"}
-        //   DiagnosticTest.setQuestionStatus( question_index ,{class:"attempting"})
-        //   // $("#side_panel_question_"+self.current_question_index).removeClass("untouched").addClass("attempting")
-        // }
+        self.change_question = function(question_index){
+          if (question_index < self.fetched_questions.length - 1){
+            var previous_question = self.current_question_index.data
+            DiagnosticTest.setQuestionStatus(previous_question, {
+              class: self.question_status_data.data[previous_question].static_class
+            })
+            DiagnosticTest.setQuestionStatus(question_index, {class:"attempting"});
+            DiagnosticTest.setData('current_question_index',{data:question_index})     
+          }
+        }
 
         $scope.$watch('$ctrl.current_question_index.data',function(new_val,old_val){
           console.log("Question changed");
@@ -160,9 +155,12 @@ angular.
           DiagnosticTest.setQuestionStatus(self.get_displayed_question_index(),{class:'attempted', static_class:'attempted'})
           present_question.answer_selected = answer_object.short_choice_answer_id;
           present_question.time_taken += self.get_time_spent();
-          if (self.current_question_index.data < self.fetched_questions.length){
-            // self.change_question(self.get_displayed_question_index() + 1);
+          console.log(self.current_question_index)
+          console.log(self.fetched_questions.length)
+          if (self.current_question_index.data < self.fetched_questions.length - 1){
             DiagnosticTest.setData('current_question_index',{data:self.get_displayed_question_index() + 1})
+          } else {
+            self.show_all_questions = true;
           }
         }
 

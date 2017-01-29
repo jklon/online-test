@@ -16,12 +16,34 @@
   }
 </style>
 
-<div layout="column" layout-align="top center">
-  <!-- <p ng-click="$ctrl.show_data();" >See the data at Attemp controller</p> -->
-  <p class="question-text" ><span math-jax-bind="$ctrl.fetched_questions[$ctrl.current_question_index.data].question_text" ></span></p>
+<div ng-hide="$ctrl.show_all_questions" layout="row" layout-xs="column" layout-padding style="min-height: 600px;">
+  <div flex-gt-xs="15"  md-whiteframe="2">
+    <div id="sidebar-question-index">
+      <p hide-xs>List</p>
+      <span class="{{item.class}}" ng-repeat="item in $ctrl.question_status_data.data track by $index" ng-click="$ctrl.change_question($index)">
+        {{$index + 1}}
+      </span>
+    </div>
+  </div>
+  <div flex-gt-xs="85"  layout="column" layout-align="top center">
+    <!-- <p ng-click="$ctrl.show_data();" >See the data at Attemp controller</p> -->
+    <p class="question-text" ><span math-jax-bind="$ctrl.fetched_questions[$ctrl.current_question_index.data].question_text" ></span></p>
 
-  <div ng-repeat="answer in $ctrl.fetched_questions[$ctrl.current_question_index.data].answers">
-    <md-button class="answer-button {{$ctrl.diagnostic_test_data.diagnostic_test.short_choice_questions[$ctrl.fetched_questions[$ctrl.current_question_index.data].short_choice_question_id].answer_selected == answer.short_choice_answer_id ? 'selected-option' : 'unselected-option'}}"  ng-click="$ctrl.select_answer($ctrl.fetched_questions[$ctrl.current_question_index.data].short_choice_question_id, $index)"><span math-jax-bind="answer.answer_text" ></span></md-button>
+    <div ng-repeat="answer in $ctrl.fetched_questions[$ctrl.current_question_index.data].answers">
+      <md-button class="answer-button {{$ctrl.diagnostic_test_data.diagnostic_test.short_choice_questions[$ctrl.fetched_questions[$ctrl.current_question_index.data].short_choice_question_id].answer_selected == answer.short_choice_answer_id ? 'selected-option' : 'unselected-option'}}"  ng-click="$ctrl.select_answer($ctrl.fetched_questions[$ctrl.current_question_index.data].short_choice_question_id, $index)"><span math-jax-bind="answer.answer_text" ></span></md-button>
+    </div>
+  </div>
+</div>
+
+
+<div ng-if="$ctrl.show_all_questions" layout="column" layout-align="center" flex-offset="20" flex-xs-offset="0" flex="60" flex-xs="100" md-whiteframe="2">
+  <div ng-repeat="question in $ctrl.fetched_questions" layout="column" layout-align="center center">
+    <p class="question-text" ><span math-jax-bind="question.question_text" ></span></p>
+
+    <div ng-repeat="answer in question.answers">
+      <md-button class="answer-button {{$ctrl.diagnostic_test_data.diagnostic_test.short_choice_questions[question.short_choice_question_id].answer_selected == answer.short_choice_answer_id ? 'selected-option' : 'unselected-option'}}"><span math-jax-bind="answer.answer_text" ></span></md-button>
+    </div>
+    <br>
   </div>
 </div>
 
