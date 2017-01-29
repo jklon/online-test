@@ -57,6 +57,9 @@ angular.
             DiagnosticTest.setQuestionStatus(question_index, {class:"attempting"});
             DiagnosticTest.setData('current_question_index',{data:question_index})     
           }
+          var time_spent = self.diagnostic_test_data.diagnostic_test.short_choice_questions[self.fetched_questions[question_index].short_choice_question_id].time_taken
+          console.log(((time_spent/90)*100).toString() + "%");
+          document.getElementById("animated_timer").style.height = ((time_spent/90)*100).toString() + "%";
         }
 
         $scope.$watch('$ctrl.current_question_index.data',function(new_val,old_val){
