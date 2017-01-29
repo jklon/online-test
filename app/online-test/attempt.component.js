@@ -13,6 +13,7 @@ angular.
         console.log("This is AttemptController");
         console.log(DiagnosticTest.getAllData())
         var self = this;
+        self.timer_height = 20;
         self.show_all_questions = false;
         self.question_status_data = DiagnosticTest.getAllData().question_status_data
         self.test_start_text = "Hi " + (DiagnosticTest.getData('user') ? DiagnosticTest.getData('user').first_name : "") + ", We have got a personalized test for you designed to improve your week areas based on your last attempt here :)"  
@@ -69,6 +70,7 @@ angular.
         self.reset_timer = function(){
           self.current_question_start_time = Date.now();
         }
+
         self.reset_timer();
 
         self.get_time_spent = function(){
@@ -104,21 +106,6 @@ angular.
             }
           });
           DiagnosticTest.setData("question_status_data", {data:temp_question_status_data})
-          
-          $(document).ready(function(){
-            $("#test-submit-btn").on("click", function(){
-              DiagnosticTest.http.submit_test(self.diagnostic_test_data, function(data){
-                DiagnosticTest.setData('diagnostic_test_result', {data:{
-                  personalized_test_remaining: data.personalized_test_remaining,
-                  result: data.result,
-                  weak_entity: data.weak_entity,
-                  difficulty_breakup: data.difficulty_breakup,
-                  question_analysis: data.question_analysis, 
-                }})
-                $location.url('/online-test/result')
-              })
-            })
-          })
 
           $("#start-test-btn").prop("disabled", false).on("click", function(){
             console.log("Starting the test now");
@@ -195,17 +182,17 @@ angular.
     }
   };
 });
-// angular.
-//   module('onlineTest').directive('QuestionStatusBind', function() {
-//   var refresh = function(element) {
-//       MathJax.Hub.Queue(["Typeset", MathJax.Hub, element]);
-//   };
-//   return {
-//     link: function(scope, element, attrs) {
-//       scope.$watch(attrs.mathJaxBind, function(newValue, oldValue) {
-//         element.html(newValue);
-//         refresh(element[0]);
-//       });
-//     }
-//   };
-// });
+
+angular.
+  module('onlineTest').directive('animatedTimer',['$interval', function($interval) {
+  return {
+    link: function(scope, element, attrs) {
+      $interval(function(){
+        if (scope.$ctrl.diagnostic_test_data){
+          var time_spent = scope.$ctrl.get_time_spent() + scope.$ctrl.diagnostic_test_data.diagnostic_test.short_choice_questions[attrs['animatedTimer']].time_taken
+          element.css('height', ((time_spent/90)*100).toString() + "%")
+        }
+      },1000, 0);
+    }
+  };
+}]);
