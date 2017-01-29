@@ -69,5 +69,6 @@
 
 .question-text{
   min-height: 50px;
+  max-width: 500px;
   text-align: center;
 }
