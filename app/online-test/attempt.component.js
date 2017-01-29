@@ -160,8 +160,6 @@ angular.
           DiagnosticTest.setQuestionStatus(self.get_displayed_question_index(),{class:'attempted', static_class:'attempted'})
           present_question.answer_selected = answer_object.short_choice_answer_id;
           present_question.time_taken += self.get_time_spent();
-          console.log(self.current_question_index)
-          console.log(self.fetched_questions.length)
           if (self.current_question_index.data < self.fetched_questions.length - 1){
             DiagnosticTest.setData('current_question_index',{data:self.get_displayed_question_index() + 1})
           } else {
