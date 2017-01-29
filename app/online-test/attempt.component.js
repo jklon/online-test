@@ -40,7 +40,7 @@ angular.
         self.current_question_index = DiagnosticTest.getAllData().current_question_index;
 
         self.toggleAllQuestionView = function(){
-          self.show_all_questions = !show_all_questions
+          self.show_all_questions = !self.show_all_questions
         }
 
         this.show_data = function(){
@@ -48,7 +48,7 @@ angular.
         }
 
         self.change_question = function(question_index){
-          if (question_index < self.fetched_questions.length - 1){
+          if (question_index < self.fetched_questions.length){
             var previous_question = self.current_question_index.data
             DiagnosticTest.setQuestionStatus(previous_question, {
               class: self.question_status_data.data[previous_question].static_class
@@ -125,6 +125,19 @@ angular.
             self.reset_timer();
             $("#attempt-overlay").addClass("hidden");
           })     
+        }
+
+        self.submit_test = function(){
+          DiagnosticTest.http.submit_test(self.diagnostic_test_data, function(data){
+            DiagnosticTest.setData('diagnostic_test_result', {data:{
+              personalized_test_remaining: data.personalized_test_remaining,
+              result: data.result,
+              weak_entity: data.weak_entity,
+              difficulty_breakup: data.difficulty_breakup,
+              question_analysis: data.question_analysis, 
+            }})
+            $location.url('/online-test/result')
+          })
         }
 
 

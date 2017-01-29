@@ -36,14 +36,22 @@
 </div>
 
 
-<div ng-if="$ctrl.show_all_questions" layout="column" layout-align="center" flex-offset="20" flex-xs-offset="0" flex="60" flex-xs="100" md-whiteframe="2">
-  <div ng-repeat="question in $ctrl.fetched_questions" layout="column" layout-align="center center">
-    <p class="question-text" ><span math-jax-bind="question.question_text" ></span></p>
+<div ng-if="$ctrl.show_all_questions" layout="column" layout-align="center" flex-offset="20" flex-offset-xs="0" flex="60" flex-xs="100">
+  
+  <div layout-padding layout="row" layout-align="center center" md-whiteframe="2">
+    <md-button class="md-raised md-primary" ng-click="$ctrl.toggleAllQuestionView()">Review</md-button>
+    <md-button class="md-raised" ng-click="$ctrl.submit_test()">Submit</md-button>
+  </div>
 
-    <div ng-repeat="answer in question.answers">
-      <md-button class="answer-button {{$ctrl.diagnostic_test_data.diagnostic_test.short_choice_questions[question.short_choice_question_id].answer_selected == answer.short_choice_answer_id ? 'selected-option' : 'unselected-option'}}"><span math-jax-bind="answer.answer_text" ></span></md-button>
+  <div md-whiteframe="2">
+    <div ng-repeat="question in $ctrl.fetched_questions" layout="column" layout-align="center center">
+      <p class="question-text" ><span math-jax-bind="question.question_text" ></span></p>
+
+      <div ng-repeat="answer in question.answers">
+        <md-button class="answer-button {{$ctrl.diagnostic_test_data.diagnostic_test.short_choice_questions[question.short_choice_question_id].answer_selected == answer.short_choice_answer_id ? 'selected-option' : 'unselected-option'}}"><span math-jax-bind="answer.answer_text" ></span></md-button>
+      </div>
+      <br>
     </div>
-    <br>
   </div>
 </div>
 
