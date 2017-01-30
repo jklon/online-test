@@ -9,6 +9,7 @@ angular.
         'user': {},
         'diagnostic_test_result':{},
         'personalized':{},
+        'current_question_index':{data:0},  
       }
 
       const data_template = {
@@ -18,6 +19,7 @@ angular.
         'user': {},
         'diagnostic_test_result':{},
         'personalized':{},
+        'current_question_index':{data:0},
       }
 
       var attempt_ready = false;
@@ -39,6 +41,10 @@ angular.
             Object.assign(data, data_template);
             attempt_ready = false
             return true
+          },
+
+          setQuestionStatus: function(index, value){
+            Object.assign(data['question_status_data'].data[index], value)
           },
 
           attempt_ready: function(value){

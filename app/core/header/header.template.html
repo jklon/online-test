@@ -2,7 +2,7 @@
 
 <div layout="column"  ng-cloak>
 
-  <md-toolbar flex>
+  <md-toolbar>
     <div class="md-toolbar-tools">
       <md-button class="md-icon-button" ng-click="$ctrl.toggleSidenav()">
         <md-icon class="material-icons" aria-label="Menu">menu</md-icon>
@@ -14,17 +14,26 @@
 
   <section layout="row" flex style="min-height: 100%">
 
-      <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4" style="min-height: 100%">
+      <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" style="min-height: 100%">
         <md-content layout-padding="">
-          <div id="sidebar-wrapper"></div>
+<!--           <div id="sidebar-wrapper">
+            <div id="sidebar-question-index">
+              <p>Question List</p>
+              <div id="side-panel-questions">
+                <span class="{{item.class}}" ng-repeat="item in $ctrl.diagnostic_test_data.question_status_data.data track by $index" ng-click="$ctrl.change_question($index)">
+                  {{$index + 1}}
+                </span>
+              </div>
+            </div>
+          </div> -->
         </md-content>
+        <!-- <md-button id="test-submit-btn">Submit</md-button> -->
       </md-sidenav>
 
 
-      <md-content flex layout-padding>
-        <div layout="column" id="main-body">
-          <div ng-view></div>
-        </div>
+      <md-content flex layout-padding layout="column" style="min-height:calc(100% - 64px);">
+        <!-- <p ng-click="$ctrl.show_data();" >See the question status data</p> -->
+        <div ng-view></div>
       </md-content>
 
   </section>

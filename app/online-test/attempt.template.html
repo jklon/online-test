@@ -2,7 +2,7 @@
   #attempt-overlay{
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: absolute;
     top:0;
     left: 0;
     z-index: 100000;
@@ -14,17 +14,80 @@
     display: table-cell;
     vertical-align: middle;
   }
+  #animated_timer{
+    width: 100%;
+    z-index: 0;
+    background-color: #d5dbfb;
+    position: absolute;
+    top:0;
+    left: 0;
+    /*height: 50%;*/
+  }
+  .answer-button{
+    min-width: 300px;
+    text-align: center;
+    min-height: 60px;
+    
+  }
+  .selected-option, .selected-option:hover{
+    background-color: #98d298 !important;
+  }
+  .unselected-option{
+    background-color: #e5e5e5;
+  }
+
+  .question-text{
+    min-height: 50px;
+    max-width: 500px;
+    text-align: center;
+    z-index: 1;
+  }
+  #question-image{
+    z-index: 1;
+  }
 </style>
 
-<div id="test-container" layout="column" layout-align="top center">
-  <p><span math-jax-bind="$ctrl.fetched_questions[$ctrl.current_question_index].question_text" ></span></p>
-
-  <div ng-repeat="answer in $ctrl.fetched_questions[$ctrl.current_question_index].answers">
-    <md-button class="answer-button {{$ctrl.diagnostic_test_data.diagnostic_test.short_choice_questions[$ctrl.fetched_questions[$ctrl.current_question_index].short_choice_question_id].answer_selected == answer.short_choice_answer_id ? 'selected-option' : 'unselected-option'}}"  ng-click="$ctrl.select_answer($ctrl.fetched_questions[$ctrl.current_question_index].short_choice_question_id, $index)"><span math-jax-bind="answer.answer_text" ></span></md-button>
+<div ng-hide="$ctrl.show_all_questions" layout="row" layout-xs="column" layout-padding style="z-index: 1;min-height: 500px;">
+  <div flex-gt-xs="15">
+    <div id="sidebar-question-index">
+      <p hide-xs>List</p>
+      <span class="{{item.class}}" ng-repeat="item in $ctrl.question_status_data.data track by $index" ng-click="$ctrl.change_question($index)">
+        {{$index + 1}}
+      </span>
+    </div>
+  </div>
+  <div flex-gt-xs="85"  layout="column" layout-align="top center" md-whiteframe="2" style="position: relative">
+    <div id="animated_timer" animated-timer="{{$ctrl.fetched_questions[$ctrl.current_question_index.data].short_choice_question_id}}"></div>
+    <!-- <p ng-click="$ctrl.show_data();" >See the data at Attemp controller</p> -->
+    <p class="question-text" ><span math-jax-bind="$ctrl.fetched_questions[$ctrl.current_question_index.data].question_text" ></span></p>
+    <img id="question-image" ng-hide="$ctrl.fetched_questions[$ctrl.current_question_index.data].question_image == ''" src="{{$ctrl.fetched_questions[$ctrl.current_question_index.data].question_image}}" ></img>
+    <div ng-repeat="answer in $ctrl.fetched_questions[$ctrl.current_question_index.data].answers">
+      <md-button class="answer-button {{$ctrl.diagnostic_test_data.diagnostic_test.short_choice_questions[$ctrl.index_id_data[$ctrl.current_question_index.data]].answer_selected == answer.short_choice_answer_id ? 'selected-option' : 'unselected-option'}}"  ng-click="$ctrl.select_answer($ctrl.index_id_data[$ctrl.current_question_index.data], $index)"><span math-jax-bind="answer.answer_text" ></span><img ng-hide="{{answer.image == ''}}" src="{{answer.image}}"></img></md-button>
+    </div>
   </div>
 </div>
 
-<div id="attempt-overlay">
+
+<div ng-if="$ctrl.show_all_questions" layout="column" layout-align="center" flex-offset="20" flex-offset-xs="0" flex="60" flex-xs="100">
+  
+  <div layout-padding layout="row" layout-align="center center" md-whiteframe="2">
+    <md-button class="md-raised md-primary" ng-click="$ctrl.toggleAllQuestionView()">Review</md-button>
+    <md-button class="md-raised" ng-click="$ctrl.submit_test()">Submit</md-button>
+  </div>
+
+  <div md-whiteframe="2">
+    <div ng-repeat="question in $ctrl.fetched_questions" layout="column" layout-align="center center">
+      <p class="question-text" ><span math-jax-bind="question.question_text" ></span></p>
+
+      <div ng-repeat="answer in question.answers">
+        <md-button class="answer-button {{$ctrl.diagnostic_test_data.diagnostic_test.short_choice_questions[question.short_choice_question_id].answer_selected == answer.short_choice_answer_id ? 'selected-option' : 'unselected-option'}}"><span math-jax-bind="answer.answer_text" ></span><img ng-hide="{{answer.image == ''}}" src="answer.image"></img></md-button>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
+
+<div id="attempt-overlay" layout-padding>
   <content>
     <span>{{$ctrl.test_start_text}}</span>
     <li>Keep your pen and paper ready</li>
@@ -34,8 +97,8 @@
   </content>
 </div>
 
-  <br><br><br><br><br><br><br><br><br><br>
-  <pre>{{$ctrl.diagnostic_test_data | json}}</pre>
+<!--   <br><br><br><br><br><br><br><br><br><br>
+  <pre>{{$ctrl.diagnostic_test_data | json}}</pre> -->
 
 
 
