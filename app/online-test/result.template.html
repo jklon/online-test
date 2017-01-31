@@ -298,9 +298,9 @@
 
 
 <!--Original Content -->
-<md-content class="md-padding" layout-xs="column" layout="column">
+<md-content class="md-padding" layout="column" >
   
-  <div flex-xs="" flex-gt-xs="50" layout="row"  layout-align="center center">
+  <div flex layout="row"  layout-align="top center">
       <md-card  md-theme-watch="" ng-repeat="(key, stream) in $ctrl.diagnostic_test_result.result.streams"  md-whiteframe="15" >
         <md-card-title>
           <md-card-title-text layout="column" layout-align="center center">
@@ -312,7 +312,7 @@
       </md-card>
   </div>
 
-  <div flex-xs="" flex-gt-xs="50" layout="row"  layout-align="center center">
+  <div flex layout="row"  layout-align="top center">
     <md-card md-theme-watch="" ng-repeat="(key, chapter) in $ctrl.diagnostic_test_result.result.chapters"  md-whiteframe="10">
       <md-card-title>
         <md-card-title-text layout="column"       layout-align="center center">
@@ -382,7 +382,7 @@
     </div>
   </md-card>
 
-  <div flex-xs="" flex-gt-xs="50" layout="column">
+  <div  layout="column">
     
     <md-card  md-theme-watch="" >
       <md-toolbar >
@@ -478,31 +478,35 @@
       </md-toolbar>
       <md-card-content>
         <table   layout-fill>
-            <thead>
-              <tr>
-                <th>Q. No.</th>
-                <th>Chapter</th>
-                <th>Topic</th>
-                <th>Difficulty Type</th>
-                <th>Your Response</th>
-              </tr>
-            </thead>
-            
-            <tbody>
-              <tr ng-repeat="(key, question) in $ctrl.diagnostic_test_result.question_analysis">
-                <td>{{question.index}}</td>
-                <td>{{question.chapter}}</td>
-                <td>{{question.second_topic}}</td>
-                <td>{{question.difficulty}}</td>
-                <td>{{attemptNames[question.attempt]}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-check" aria-hidden="true"></i></td>
-              </tr>
-            </tbody>
+          <thead>
+            <tr>
+              <th>Q. No.</th>
+              <th>Chapter</th>
+              <th>Topic</th>
+              <th>Difficulty Type</th>
+              <th>Your Response</th>
+            </tr>
+          </thead>
           
-          </table>
-        </md-card-content>
-      </md-card>
-      <md-card md-theme-watch="" >
-      </md-card>
+          <tbody>
+            <tr ng-repeat="(key, question) in $ctrl.diagnostic_test_result.question_analysis">
+              <td>{{question.index}}</td>
+              <td>{{question.chapter}}</td>
+              <td>{{question.second_topic}}</td>
+              <td>{{question.difficulty}}</td>
+              <td>{{attemptNames[question.attempt]}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-check" aria-hidden="true"></i></td>
+            </tr>
+          </tbody>
+        
+        </table>
+      </md-card-content>
+    </md-card>
+    <md-card md-theme-watch="" >
+    </md-card>
+  </div>
+  <div layout-padding layout="row" layout-align="center center" md-whiteframe="2">
+    <md-button class="md-raised md-primary" ng-click="$ctrl.toggleAllQuestionView()">Review</md-button>
+    <md-button class="md-raised" ng-click="$ctrl.submit_test()">Submit</md-button>
   </div>
 </md-content>
 

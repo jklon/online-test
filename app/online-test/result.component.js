@@ -92,7 +92,11 @@ angular.
               $location.url('/online-test/');
             })
           })
-        })
+        });
+
+        this.start_personalized_test = function(){
+          $location.url('/online-test/attempt')
+        }
       }
     ]
   })
