@@ -299,7 +299,8 @@
 
 <!--Original Content -->
 <md-content class="md-padding" layout-xs="column" layout="column">
-<div flex-xs="" flex-gt-xs="50" layout="row"  layout-align="center center">
+  
+  <div flex-xs="" flex-gt-xs="50" layout="row"  layout-align="center center">
       <md-card  md-theme-watch="" ng-repeat="(key, stream) in $ctrl.diagnostic_test_result.result.streams"  md-whiteframe="15" >
         <md-card-title>
           <md-card-title-text layout="column" layout-align="center center">
@@ -310,6 +311,7 @@
 
       </md-card>
   </div>
+
   <div flex-xs="" flex-gt-xs="50" layout="row"  layout-align="center center">
     <md-card md-theme-watch="" ng-repeat="(key, chapter) in $ctrl.diagnostic_test_result.result.chapters"  md-whiteframe="10">
       <md-card-title>
@@ -321,6 +323,7 @@
 
     </md-card>
   </div>
+
  <md-card  md-theme-watch="" >
     <md-toolbar >
       <div class="md-toolbar-tools">
@@ -329,8 +332,8 @@
     </md-toolbar>
 
     <div flex-xs="" flex-gt-xs="50" layout="column">
-    <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
-  </div>
+      <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+    </div>
   </md-card>
 
   <md-card  md-theme-watch="" >
@@ -343,6 +346,7 @@
       <canvas id="doughnut" class="chart chart-doughnut" chart-data="attempt_data" chart-labels="attempt_labels"></canvas> 
     </div>
   </md-card>
+
   <md-card  md-theme-watch="" >
     <md-toolbar >
       <div class="md-toolbar-tools">
@@ -365,7 +369,8 @@
       <canvas id="radar" class="chart chart-radar" chart-data="topic_time_data" chart-options="options" chart-labels="topic_time_labels"></canvas> 
     </div>
   </md-card>
-    <md-card  md-theme-watch="" >
+
+  <md-card  md-theme-watch="" >
     <md-toolbar >
       <div class="md-toolbar-tools">
         <h1 class="md-flex">Chapterwise Time Analysis</h1>
@@ -373,68 +378,70 @@
     </md-toolbar>
 
     <div flex-xs="" flex-gt-xs="50" layout="column">
-    <canvas id="radar" class="chart chart-radar" chart-data="chapter_time_data" chart-options="options" chart-labels="chapter_time_labels"></canvas> 
-  </div>
+      <canvas id="radar" class="chart chart-radar" chart-data="chapter_time_data" chart-options="options" chart-labels="chapter_time_labels"></canvas> 
+    </div>
   </md-card>
+
   <div flex-xs="" flex-gt-xs="50" layout="column">
     
-  <md-card  md-theme-watch="" >
-    <md-toolbar >
-      <div class="md-toolbar-tools">
-        <h1 class="md-flex">SPI</h1>
-      </div>
-    </md-toolbar>
+    <md-card  md-theme-watch="" >
+      <md-toolbar >
+        <div class="md-toolbar-tools">
+          <h1 class="md-flex">SPI</h1>
+        </div>
+      </md-toolbar>
 
-    <md-card-title>
-      <md-card-title-text layout="column"       layout-align="center center">
-        <span class="md-head">SPI is Success Potential Index rated between 0 and 1000. It determines the relative chances of a candidate to clear the examination. The score of 1000 means he has the highest chances of clearing the examination while 0 means that he has the lowest chance of clearing the examination.</span>
-      </md-card-title-text>
-    </md-card-title>
-  </md-card>
-  <md-card md-theme="dark-grey" md-theme-watch="" >
-    <md-toolbar >
-      <div class="md-toolbar-tools">
-        <h2 class="md-flex">Reso Tip</h2>
-      </div>
-    </md-toolbar>
-    <md-card-title>
-    <span class="md-head">You need to work on following things</span>
-    </md-card-title>
-    <md-list-item ng-repeat="(key, value) in $ctrl.diagnostic_test_result.weak_entity.entity_list">
-      <p> {{ value.name }} </p>
-      <md-divider ng-if="!$last"></md-divider>
-    </md-list-item>
-  </md-card>
-  <md-card md-theme-watch=""  >
-  <md-toolbar >
-    <div class="md-toolbar-tools">
-      <h2 class="md-flex">Overall Performance At Various Difficulty Levels</h2>
-    </div>
-  </md-toolbar>
-    <md-card-content>
-      <table layout-fill>
-        <thead>
-          <tr>
-            <th>Questions</th>
-            <th>Correct</th>
-            <th>Incorrect</th>
-            <th>Unattempted</th>
-            <th>Out of</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="(key, difficulty) in $ctrl.diagnostic_test_result.difficulty_breakup">
-            <td>{{key}}</td>
-            <td>{{difficulty.correct}}</td>
-            <td>{{difficulty.incorrect}}</td>
-            <td>{{difficulty.unattempted}}</td>
-            <td>{{difficulty.total}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </md-card-content>
-    <!-- </div>  -->
-  </md-card>
+      <md-card-title>
+        <md-card-title-text layout="column"       layout-align="center center">
+          <span class="md-head">SPI is Success Potential Index rated between 0 and 1000. It determines the relative chances of a candidate to clear the examination. The score of 1000 means he has the highest chances of clearing the examination while 0 means that he has the lowest chance of clearing the examination.</span>
+        </md-card-title-text>
+      </md-card-title>
+    </md-card>
+
+    <md-card md-theme="dark-grey" md-theme-watch="" >
+      <md-toolbar >
+        <div class="md-toolbar-tools">
+          <h2 class="md-flex">Reso Tip</h2>
+        </div>
+      </md-toolbar>
+      <md-card-title>
+      <span class="md-head">You need to work on following things</span>
+      </md-card-title>
+      <md-list-item ng-repeat="(key, value) in $ctrl.diagnostic_test_result.weak_entity.entity_list">
+        <p> {{ value.name }} </p>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-card>
+
+    <md-card md-theme-watch=""  >
+      <md-toolbar >
+        <div class="md-toolbar-tools">
+          <h2 class="md-flex">Overall Performance At Various Difficulty Levels</h2>
+        </div>
+      </md-toolbar>
+      <md-card-content>
+        <table layout-fill>
+          <thead>
+            <tr>
+              <th>Questions</th>
+              <th>Correct</th>
+              <th>Incorrect</th>
+              <th>Unattempted</th>
+              <th>Out of</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="(key, difficulty) in $ctrl.diagnostic_test_result.difficulty_breakup">
+              <td>{{key}}</td>
+              <td>{{difficulty.correct}}</td>
+              <td>{{difficulty.incorrect}}</td>
+              <td>{{difficulty.unattempted}}</td>
+              <td>{{difficulty.total}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </md-card-content>
+    </md-card>
 <!--   <md-card md-theme-watch="" >
     <md-toolbar >
       <div class="md-toolbar-tools">
@@ -463,39 +470,39 @@
       </div>
     </md-card-content>
   </md-card> -->
-  <md-card md-theme-watch="" >
-    <md-toolbar >
-      <div class="md-toolbar-tools">
-        <h2 class="md-flex">Question Analysis</h2>
-      </div>
-    </md-toolbar>
-    <md-card-content>
-      <table   layout-fill>
-          <thead>
-            <tr>
-              <th>Q. No.</th>
-              <th>Chapter</th>
-              <th>Topic</th>
-              <th>Difficulty Type</th>
-              <th>Your Response</th>
-            </tr>
-          </thead>
-          
-          <tbody>
-            <tr ng-repeat="(key, question) in $ctrl.diagnostic_test_result.question_analysis">
-              <td>{{question.index}}</td>
-              <td>{{question.chapter}}</td>
-              <td>{{question.second_topic}}</td>
-              <td>{{question.difficulty}}</td>
-              <td>{{attemptNames[question.attempt]}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-check" aria-hidden="true"></i></td>
-            </tr>
-          </tbody>
-        
-        </table>
-      </md-card-content>
-    </md-card>
     <md-card md-theme-watch="" >
-    </md-card>
+      <md-toolbar >
+        <div class="md-toolbar-tools">
+          <h2 class="md-flex">Question Analysis</h2>
+        </div>
+      </md-toolbar>
+      <md-card-content>
+        <table   layout-fill>
+            <thead>
+              <tr>
+                <th>Q. No.</th>
+                <th>Chapter</th>
+                <th>Topic</th>
+                <th>Difficulty Type</th>
+                <th>Your Response</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr ng-repeat="(key, question) in $ctrl.diagnostic_test_result.question_analysis">
+                <td>{{question.index}}</td>
+                <td>{{question.chapter}}</td>
+                <td>{{question.second_topic}}</td>
+                <td>{{question.difficulty}}</td>
+                <td>{{attemptNames[question.attempt]}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-check" aria-hidden="true"></i></td>
+              </tr>
+            </tbody>
+          
+          </table>
+        </md-card-content>
+      </md-card>
+      <md-card md-theme-watch="" >
+      </md-card>
   </div>
 </md-content>
 
