@@ -8,7 +8,7 @@ angular.
     controller: ['$routeParams', 'DiagnosticTest', '$rootScope', '$location', '$http',
       function OnlineTestController($routeParams, DiagnosticTest, $rootScope, $location, $http) {
         var self = this;
-        self.standard_form_class = "hidden" 
+        self.standard_form_class = false 
 
         self.submitStudentForm = function(){
           DiagnosticTest.setData('user', {data:{
@@ -19,7 +19,7 @@ angular.
             }}
           )
 
-          if (self.standard_form_class == "hidden"){
+          if (self.standard_form_class == false){
             DiagnosticTest.http.get_attempt_details({
               number: self.user.number
             }, function(data){
@@ -37,7 +37,7 @@ angular.
                 for (var key in data.standards){
                   self.streams[data.standards[key].standard_id] = data.standards[key].streams
                 }
-                self.standard_form_class = "shown"
+                self.standard_form_class = true
               }
             })
           } else if (self.standard_id) {
