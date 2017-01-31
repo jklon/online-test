@@ -18,13 +18,13 @@
         
           <md-input-container class="md-block" flex-gt-sm>
             <label>Phone Number</label>
-            <input ng-model="$ctrl.user.number">
+            <input ng-model="$ctrl.user.number" required>
           </md-input-container>
         
-          <div class="{{$ctrl.standard_form_class}}">
+          <div ng-if="$ctrl.standard_form_class">
             <md-input-container class="md-block" flex-gt-sm>
               <label>Standard</label>
-              <md-select ng-model="$ctrl.standard_id">
+              <md-select ng-model="$ctrl.standard_id" required>
                 <md-option ng-repeat="standard in $ctrl.standards" value="{{standard.standard_id}}">
                   {{standard.name}}
                 </md-option>
@@ -32,15 +32,15 @@
             </md-input-container>
           </div>
 
-          <div class="{{$ctrl.standard_form_class}}">
-          <md-input-container class="md-block {{$ctrl.standard_form_class}}" flex-gt-sm>
-            <label>Stream</label>
-            <md-select ng-model="$ctrl.stream">
-              <md-option ng-repeat="stream in $ctrl.streams[$ctrl.standard_id]" value="{{stream.id}}">
-                {{stream.name}}
-              </md-option>
-            </md-select>
-          </md-input-container>
+          <div  ng-if="$ctrl.standard_form_class" >
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Stream</label>
+              <md-select ng-model="$ctrl.stream" required>
+                <md-option ng-repeat="stream in $ctrl.streams[$ctrl.standard_id]" value="{{stream.id}}">
+                  {{stream.name}}
+                </md-option>
+              </md-select>
+            </md-input-container>
           </div>
         
 
