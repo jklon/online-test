@@ -8,6 +8,9 @@ angular.
     controller: ['DiagnosticTest', '$scope', '$location',
       function ResultController(DiagnosticTest, $scope, $location) {        
         this.diagnostic_test_result = DiagnosticTest.getData('diagnostic_test_result')
+        if (!this.diagnostic_test_result){
+          $location.url("/online-test/")
+        }
         this.color_labels = ["LightGoldenRodYellow", "Aquamarine", "DarkGrey", "DeepSkyBlue", "FloralWhite", "LavenderBlush"]
         console.log(this.diagnostic_test_result); 
         $scope.attemptNames = ["Unseen","Unattempted","Incorrect","Correct"];
