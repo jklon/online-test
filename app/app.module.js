@@ -8,5 +8,6 @@ angular.module('phonecatApp', [
   'onlineTest',
   'ngAria',
   'ngMaterial',
-  'chart.js'
+  'chart.js',
+  'ngMessages'
 ]);
