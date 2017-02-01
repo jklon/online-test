@@ -24,71 +24,14 @@
 
 
 <!-- Duplicate Materialize code -->
-<!--
-  <md-content class="md-padding" layout-xs="column" layout="column">
-
-  <md-card  md-theme-watch="" >
-    <md-toolbar >
-      <div class="md-toolbar-tools">
-        <h1 class="md-flex">Difficulty Analysis</h1>
-        <span flex=""></span>
-        <md-button class="md-raised" ng-click="showDifficultyInfo($event)" aria-label="Learn More">
-          Learn More
-        </md-button>
-      </div>
-    </md-toolbar>
-    <div flex-xs="" flex-gt-xs="50" layout-fill layout-align="center center">
-      <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
-    </div>
-  </md-card>
-
-  <md-card  md-theme-watch="" >
-    <md-toolbar >
-      <div class="md-toolbar-tools">
-        <h1 class="md-flex">Attempt Breakup</h1>
-      </div>
-    </md-toolbar>
-    <div flex-xs="" flex-gt-xs="50" layout-fill layout-align="center center">
-      <canvas id="doughnut" class="chart chart-doughnut" chart-data="attempt_data" chart-labels="attempt_labels"></canvas> 
-    </div>
-  </md-card>
-  <md-card  md-theme-watch="" >
-    <md-toolbar >
-      <div class="md-toolbar-tools">
-        <h1 class="md-flex">Topicwise Analysis</h1>
-      </div>
-    </md-toolbar>
-    <div flex-xs="" flex-gt-xs="50" layout-fill layout-align="center center">
-      <canvas id="base" class="chart-horizontal-bar" chart-data="topicwise_data" chart-labels="topicwise_labels" ></canvas> 
-    </div>
-  </md-card>
-
-  <md-card  md-theme-watch="" >
-    <md-toolbar >
-      <div class="md-toolbar-tools">
-        <h1 class="md-flex">Topicwise Time Analysis</h1>
-      </div>
-    </md-toolbar>
-    <div flex-xs="" flex-gt-xs="50" layout-fill layout-align="center center">
-    <canvas id="radar" class="chart chart-radar" chart-data="topic_time_data" chart-options="options" chart-labels="topic_time_labels"></canvas> 
-    </div>
-  </md-card>
-    <md-card  md-theme-watch="" >
-    <md-toolbar >
-      <div class="md-toolbar-tools">
-        <h1 class="md-flex">Chapterwise Time Analysis</h1>
-      </div>
-    </md-toolbar>
-    <div flex-xs="" flex-gt-xs="50" layout-fill layout-align="center center">
-      <canvas id="radar" class="chart chart-radar" chart-data="chapter_time_data" chart-options="options" chart-labels="chapter_time_labels"></canvas> 
-    </div>
-  </md-card>
-    <div flex-xs="" flex-gt-xs="50" layout="column">
-      <div flex-xs="" flex-gt-xs="50" layout="row" layout-align="center center">
+<!-- 
+  <md-content class="md-padding" layout-xs="column" layout="column" layout-align="center center" >
+      <div flex-xs="" flex-gt-xs="50" layout="column" >
+      <div flex-xs="" flex-gt-xs="50" layout="row" layout-xs="column" layout-align="center center">
         <md-card md-theme-watch="" md-whiteframe="12">
           <md-card-title>
             <md-card-title-text layout="column" layout-align="center center">
-              <span class="md-headline">Stream Name</span>
+              <span class="md-headline">{{stringWrapper("stream-Name")}}</span>
               <span class="md-subhead">Score 1000</span>
             </md-card-title-text>
             <md-card-title-media>
@@ -106,7 +49,7 @@
           </md-card-title>
         </md-card>
       </div>
-      <div flex-xs="" flex-gt-xs="50" layout="row"  layout-align="center center">
+      <div flex-xs="" flex-gt-xs="50" layout="row"  layout-align="center center" layout-xs="column" >
         <md-card md-theme-watch="" md-whiteframe="7">
           <md-card-title>
             <md-card-title-text layout="column"  layout-align="center center">
@@ -128,8 +71,86 @@
       </div>
     </div>
 
+  <md-card  md-theme-watch="" class="small">
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Difficulty Analysis</h1>
+        <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDialogInfo($event,diffAnalysisInfoTitle,diffAnalysisInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
+      </div>
+    </md-toolbar>
+    <div  >
+      <canvas id="bar" chart-colors="colors" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" layout-fill layout-align="center center"></canvas>
+    </div>
+  </md-card>
 
-  <md-card  md-theme-watch="" >
+  <md-card  md-theme-watch="" class="small">
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Attempt Breakup</h1>
+        <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDialogInfo($event,attemptBreakupInfoTitle,attemptBreakupInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
+      </div>
+    </md-toolbar>
+    <div layout="column" layout-align="center center" class="pie">
+      <canvas id="doughnut" chart-colors="attempt_colors" class="chart chart-doughnut" chart-data="attempt_data" chart-labels="attempt_labels" ></canvas> 
+    </div>
+  </md-card>
+  <md-card  md-theme-watch="" class="small">
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Topicwise Analysis</h1>
+        <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDialogInfo($event,topicwiseAnalysisInfoTitle,topicwiseAnalysisInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
+      </div>
+    </md-toolbar>
+    <div  layout-fill layout-align="center center">
+      <canvas id="base" chart-colors="topicwise_colors" class="chart-horizontal-bar" chart-data="topicwise_data" chart-labels="topicwise_labels"  layout-fill></canvas> 
+    </div>
+  </md-card>
+
+  <md-card  md-theme-watch="" class="small">
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Topicwise Time Analysis</h1>
+        <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDialogInfo($event,topicwiseTimeAnalysisInfoTitle,topicwiseTimeAnalysisInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
+      </div>
+    </md-toolbar>
+   
+    <div layout-fill layout-align="center center">
+    <canvas id="radar" chart-colors="time_colors"  class="chart chart-radar" chart-data="topic_time_data" chart-options="options" chart-labels="topic_labels" layout-fill></canvas> 
+    </div>
+     <md-list-item ng-repeat="topic in topic_time_labels">
+      <p> Topic#{{$index+1}}: {{topic}} </p>
+      <md-divider></md-divider>
+    </md-list-item>
+  </md-card>
+    <md-card  md-theme-watch="" class="small">
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Chapterwise Time Analysis</h1>
+        <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDialogInfo($event,chapterwiseTimeAnalysisInfoTitle,chapterwiseTimeAnalysisInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
+      </div>
+    </md-toolbar>
+    <div  layout-fill layout-align="center center">
+      <canvas id="radar" chart-colors="time_colors"  class="chart-horizontal-bar" chart-data="chapter_time_data" chart-options="options" chart-labels="chapter_time_labels"></canvas> 
+    </div>
+  </md-card>
+
+
+  <md-card  md-theme-watch="" class="large">
     <md-toolbar >
       <div class="md-toolbar-tools">
         <h1 class="md-flex">SPI</h1>
@@ -141,10 +162,14 @@
       </md-card-title-text>
     </md-card-title>
   </md-card>
-  <md-card md-theme="dark-grey" md-theme-watch="" >
+  <md-card class="large">
     <md-toolbar >
       <div class="md-toolbar-tools">
         <h2 class="md-flex">Reso Tip</h2>
+        <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDialogInfo($event,resoTipInfoTitle,resoTipInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
       </div>
     </md-toolbar>
     <md-card-title>
@@ -159,17 +184,21 @@
       <md-divider></md-divider>
     </md-list-item>
   </md-card>
-  <md-card md-theme-watch=""  >
+  <md-card class="large"  >
   <md-toolbar >
     <div class="md-toolbar-tools">
+      <span flex=""></span>
       <h2 class="md-flex">Overall Performance At Various Difficulty Levels</h2>
+      <md-button class="md-raised" ng-click="showDialogInfo($event,overallAnalysisInfoTitle,overallAnalysisInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
     </div>
   </md-toolbar>
     <md-card-content>
       <table layout-fill>
         <thead>
           <tr>
-            <th>Questions</th>
+            <th>Difficulty</th>
             <th>Correct</th>
             <th>Incorrect</th>
             <th>Unattempted</th>
@@ -194,9 +223,9 @@
         </tbody>
       </table>
     </md-card-content>
-    <!-- </div>  
-  </md-card>
-  <md-card md-theme-watch="" >
+     </div>  
+  </md-card> -->
+<!--   <md-card md-theme-watch="" >
     <md-toolbar >
       <div class="md-toolbar-tools">
         <h2 class="md-flex">Topicwise Analysis</h2>
@@ -258,11 +287,15 @@
         </table>
       </div>
     </md-card-content>
-  </md-card>
-  <md-card md-theme-watch="" >
+  </md-card> -->
+<!--   <md-card md-theme-watch="" class="large">
     <md-toolbar >
       <div class="md-toolbar-tools">
         <h2 class="md-flex">Question Analysis</h2>
+        <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDialogInfo($event,questionAnalysisInfoTitle,questionAnalysisInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
       </div>
     </md-toolbar>
     <md-card-content>
@@ -298,19 +331,19 @@
       </md-card-content>
     </md-card>
   </div>
-</md-content>
+</md-content> -->
 
--->
+
 
 
 
 
 
 <!--Original Content -->
-<md-content class="md-padding" layout="column" >
+<md-content class="md-padding" layout-xs="column" layout="column" layout-align="center center" >
   
-  <div flex layout="row"  layout-align="top center">
-      <md-card  md-theme-watch="" ng-repeat="(key, stream) in $ctrl.diagnostic_test_result.result.streams"  md-whiteframe="15" >
+  <div flex layout="row"  layout-align="top center" layout-xs="column">
+      <md-card  md-theme-watch="" ng-repeat="(key, stream) in $ctrl.diagnostic_test_result.result.streams"  style='background-color: {{$ctrl.color_labels[key % $ctrl.color_labels.length]}}' md-whiteframe="15" >
         <md-card-title>
           <md-card-title-text layout="column" layout-align="center center">
             <span class="md-headline">{{stream.other_details.stream_name}}</span>
@@ -321,11 +354,11 @@
       </md-card>
   </div>
 
-  <div flex layout="row"  layout-align="top center">
-    <md-card md-theme-watch="" ng-repeat="(key, chapter) in $ctrl.diagnostic_test_result.result.chapters"  md-whiteframe="10">
+  <div flex layout="row"  layout-align="top center" layout-xs="column">
+    <md-card md-theme-watch="" ng-repeat="(key, chapter) in $ctrl.diagnostic_test_result.result.chapters"  style='background-color: {{$ctrl.color_labels[(key+2) % $ctrl.color_labels.length]}}' md-whiteframe="10">
       <md-card-title>
         <md-card-title-text layout="column"       layout-align="center center">
-          <span class="md-headline">{{chapter.name}}</span>
+          <span class="md-headline">{{stringWrapper(chapter.name)}}</span>
           <span class="md-head">Score: {{chapter.average_score | number : 2}}</span>
         </md-card-title-text>
       </md-card-title>
@@ -333,99 +366,28 @@
     </md-card>
   </div>
 
- <md-card  md-theme-watch="" >
+  <md-card  md-theme-watch="" class="small">
     <md-toolbar >
       <div class="md-toolbar-tools">
         <h1 class="md-flex">Difficulty Analysis</h1>
+        <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDialogInfo($event,diffAnalysisInfoTitle,diffAnalysisInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
       </div>
     </md-toolbar>
-
-    <div flex-xs="" flex-gt-xs="50" layout="column">
-      <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+    <div  >
+      <canvas id="bar" chart-colors="colors" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" layout-fill layout-align="center center"></canvas>
     </div>
   </md-card>
-
-  <md-card  md-theme-watch="" >
-    <md-toolbar >
-      <div class="md-toolbar-tools">
-        <h1 class="md-flex">Attempt Breakup</h1>
-      </div>
-    </md-toolbar>
-    <div flex-xs="" flex-gt-xs="50" layout-fill layout-align="center center">
-      <canvas id="doughnut" class="chart chart-doughnut" chart-data="attempt_data" chart-labels="attempt_labels"></canvas> 
-    </div>
-  </md-card>
-
-  <md-card  md-theme-watch="" >
-    <md-toolbar >
-      <div class="md-toolbar-tools">
-        <h1 class="md-flex">Topicwise Analysis</h1>
-      </div>
-    </md-toolbar>
-
-    <div flex-xs="" flex-gt-xs="50" layout="column">    
-      <canvas id="base" class="chart-horizontal-bar" chart-data="topicwise_data" chart-labels="topicwise_labels" ></canvas> 
-    </div>
-  </md-card>
-  
-  <md-card  md-theme-watch="" >
-    <md-toolbar >
-      <div class="md-toolbar-tools">
-        <h1 class="md-flex">Topicwise Time Analysis</h1>
-      </div>
-    </md-toolbar>
-    <div flex-xs="" flex-gt-xs="50" layout="column">
-      <canvas id="radar" class="chart chart-radar" chart-data="topic_time_data" chart-options="options" chart-labels="topic_time_labels"></canvas> 
-    </div>
-  </md-card>
-
-  <md-card  md-theme-watch="" >
-    <md-toolbar >
-      <div class="md-toolbar-tools">
-        <h1 class="md-flex">Chapterwise Time Analysis</h1>
-      </div>
-    </md-toolbar>
-
-    <div flex-xs="" flex-gt-xs="50" layout="column">
-      <canvas id="radar" class="chart chart-radar" chart-data="chapter_time_data" chart-options="options" chart-labels="chapter_time_labels"></canvas> 
-    </div>
-  </md-card>
-
-  <div  layout="column">
-    
-    <md-card  md-theme-watch="" >
-      <md-toolbar >
-        <div class="md-toolbar-tools">
-          <h1 class="md-flex">SPI</h1>
-        </div>
-      </md-toolbar>
-
-      <md-card-title>
-        <md-card-title-text layout="column"       layout-align="center center">
-          <span class="md-head">SPI is Success Potential Index rated between 0 and 1000. It determines the relative chances of a candidate to clear the examination. The score of 1000 means he has the highest chances of clearing the examination while 0 means that he has the lowest chance of clearing the examination.</span>
-        </md-card-title-text>
-      </md-card-title>
-    </md-card>
-
-    <md-card md-theme="dark-grey" md-theme-watch="" >
-      <md-toolbar >
-        <div class="md-toolbar-tools">
-          <h2 class="md-flex">Reso Tip</h2>
-        </div>
-      </md-toolbar>
-      <md-card-title>
-      <span class="md-head">You need to work on following things</span>
-      </md-card-title>
-      <md-list-item ng-repeat="(key, value) in $ctrl.diagnostic_test_result.weak_entity.entity_list">
-        <p> {{ value.name }} </p>
-        <md-divider ng-if="!$last"></md-divider>
-      </md-list-item>
-    </md-card>
-
-    <md-card md-theme-watch=""  >
+  <md-card  class="large" >
       <md-toolbar >
         <div class="md-toolbar-tools">
           <h2 class="md-flex">Overall Performance At Various Difficulty Levels</h2>
+                    <span flex=""></span>
+          <md-button class="md-raised" ng-click="showDialogInfo($event,overallAnalysisInfoTitle,overallAnalysisInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
         </div>
       </md-toolbar>
       <md-card-content>
@@ -441,7 +403,7 @@
           </thead>
           <tbody>
             <tr ng-repeat="(key, difficulty) in $ctrl.diagnostic_test_result.difficulty_breakup">
-              <td>{{key}}</td>
+              <td>{{stringWrapper(key)}}</td>
               <td>{{difficulty.correct}}</td>
               <td>{{difficulty.incorrect}}</td>
               <td>{{difficulty.unattempted}}</td>
@@ -451,6 +413,150 @@
         </table>
       </md-card-content>
     </md-card>
+
+  <md-card  md-theme-watch="" class="small">
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Attempt Breakup</h1>
+        <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDialogInfo($event,attemptBreakupInfoTitle,attemptBreakupInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
+      </div>
+    </md-toolbar>
+    <div layout="column" layout-align="center center" class="pie">
+      <canvas id="doughnut" chart-colors="attempt_colors" class="chart chart-doughnut" chart-data="attempt_data" chart-labels="attempt_labels" ></canvas> 
+    </div>
+  </md-card>
+  <md-card  md-theme-watch="" class="small">
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Topicwise Analysis</h1>
+        <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDialogInfo($event,topicwiseAnalysisInfoTitle,topicwiseAnalysisInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
+      </div>
+    </md-toolbar>
+    <div  layout-fill layout-align="center center">
+      <canvas id="base" chart-colors="topicwise_colors" class="chart-horizontal-bar" chart-data="topicwise_data" chart-labels="topicwise_labels"  layout-fill></canvas> 
+    </div>
+  </md-card>
+
+  <md-card  md-theme-watch="" class="small">
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Topicwise Time Analysis</h1>
+        <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDialogInfo($event,topicwiseTimeAnalysisInfoTitle,topicwiseTimeAnalysisInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
+      </div>
+    </md-toolbar>
+   
+    <div layout-fill layout-align="center center">
+    <canvas id="radar" chart-colors="time_colors"  class="chart chart-radar" chart-data="topic_time_data" chart-options="options" chart-labels="topic_labels" layout-fill></canvas> 
+    </div>
+     <md-list-item ng-repeat="topic in topic_time_labels">
+      <p> Topic#{{$index+1}}: {{topic}} </p>
+      <md-divider></md-divider>
+    </md-list-item>
+  </md-card>
+    <md-card  md-theme-watch="" class="small">
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <h1 class="md-flex">Chapterwise Time Analysis</h1>
+        <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDialogInfo($event,chapterwiseTimeAnalysisInfoTitle,chapterwiseTimeAnalysisInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
+      </div>
+    </md-toolbar>
+    <div  layout-fill layout-align="center center">
+      <canvas id="radar" chart-colors="time_colors"  class="chart-horizontal-bar" chart-data="chapter_time_data" chart-options="options" chart-labels="chapter_time_labels"></canvas> 
+    </div>
+  </md-card>
+
+  <div  layout="column">
+    
+    <md-card  md-theme-watch="" class="large">
+      <md-toolbar >
+        <div class="md-toolbar-tools">
+          <h1 class="md-flex">SPI</h1>
+        </div>
+      </md-toolbar>
+
+      <md-card-title>
+        <md-card-title-text layout="column"       layout-align="center center">
+          <span class="md-head">SPI is Success Potential Index rated between 0 and 1000. It determines the relative chances of a candidate to clear the examination. The score of 1000 means he has the highest chances of clearing the examination while 0 means that he has the lowest chance of clearing the examination.</span>
+        </md-card-title-text>
+      </md-card-title>
+    </md-card>
+
+    <md-card class="large">
+      <md-toolbar >
+        <div class="md-toolbar-tools">
+          <h2 class="md-flex">Reso Tip</h2>
+          <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDialogInfo($event,resoTipInfoTitle,resoTipInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
+        </div>
+      </md-toolbar>
+      <md-card-title>
+      <span class="md-head">You need to work on following things</span>
+      </md-card-title>
+      <md-list-item ng-repeat="(key, value) in $ctrl.diagnostic_test_result.weak_entity.entity_list">
+        <p> {{ stringWrapper(value.name) }} </p>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-card>
+
+    
+
+    <md-card md-theme-watch="" class="large">
+      <md-toolbar >
+        <div class="md-toolbar-tools">
+          <h2 class="md-flex">Question Analysis</h2>
+          <span flex=""></span>
+        <md-button class="md-raised" ng-click="showDialogInfo($event,questionAnalysisInfoTitle,questionAnalysisInfoContent)" aria-label="Learn More">
+          Learn More
+        </md-button>
+        </div>
+      </md-toolbar>
+      <md-card-content>
+        <table   layout-fill>
+          <thead>
+            <tr>
+              <th>Q. No.</th>
+              <th>Chapter</th>
+              <th>Topic</th>
+              <th>Difficulty Type</th>
+              <th>Your Response</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr ng-repeat="(key, question) in $ctrl.diagnostic_test_result.question_analysis">
+              <td>{{question.index}}</td>
+              <td>{{stringWrapper(question.chapter)}}</td>
+              <td>{{question.second_topic}}</td>
+              <td>{{stringWrapper(question.difficulty)}}</td>
+              <td>{{attemptNames[question.attempt]}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-check" aria-hidden="true"></i></td>
+            </tr>
+          </tbody>
+        
+        </table>
+      </md-card-content>
+    </md-card>
+    <md-card md-theme-watch="" >
+    </md-card>
+  </div>
+  <div layout-padding layout="row" layout-align="center center" md-whiteframe="2">
+    <md-button class="md-raised md-primary" ng-click="$ctrl.toggleAllQuestionView()">Review</md-button>
+    <md-button class="md-raised" ng-click="$ctrl.submit_test()">Submit</md-button>
+  </div>
+</md-content>
 <!--   <md-card md-theme-watch="" >
     <md-toolbar >
       <div class="md-toolbar-tools">
@@ -478,45 +584,6 @@
         </table>
       </div>
     </md-card-content>
-  </md-card> -->
-    <md-card md-theme-watch="" >
-      <md-toolbar >
-        <div class="md-toolbar-tools">
-          <h2 class="md-flex">Question Analysis</h2>
-        </div>
-      </md-toolbar>
-      <md-card-content>
-        <table   layout-fill>
-          <thead>
-            <tr>
-              <th>Q. No.</th>
-              <th>Chapter</th>
-              <th>Topic</th>
-              <th>Difficulty Type</th>
-              <th>Your Response</th>
-            </tr>
-          </thead>
-          
-          <tbody>
-            <tr ng-repeat="(key, question) in $ctrl.diagnostic_test_result.question_analysis">
-              <td>{{question.index}}</td>
-              <td>{{question.chapter}}</td>
-              <td>{{question.second_topic}}</td>
-              <td>{{question.difficulty}}</td>
-              <td>{{attemptNames[question.attempt]}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-check" aria-hidden="true"></i></td>
-            </tr>
-          </tbody>
-        
-        </table>
-      </md-card-content>
-    </md-card>
-    <md-card md-theme-watch="" >
-    </md-card>
-  </div>
-  <div layout-padding layout="row" layout-align="center center" md-whiteframe="2">
-    <md-button class="md-raised md-primary" ng-click="$ctrl.toggleAllQuestionView()">Review</md-button>
-    <md-button class="md-raised" ng-click="$ctrl.submit_test()">Submit</md-button>
-  </div>
-</md-content>
-
+  </md-card> 
+-->
 
