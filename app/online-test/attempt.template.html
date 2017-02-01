@@ -48,14 +48,21 @@
 </style>
 
 <div ng-hide="$ctrl.show_all_questions" layout="row" layout-xs="column" layout-padding style="z-index: 1;min-height: 500px;">
+
   <div flex-gt-xs="15">
-    <div id="sidebar-question-index">
+    <div id="sidebar-question-index" layout="column">
       <p hide-xs>List</p>
-      <span class="{{item.class}}" ng-repeat="item in $ctrl.question_status_data.data track by $index" ng-click="$ctrl.change_question($index)">
-        {{$index + 1}}
-      </span>
+      <div>
+        <span class="{{item.class}}" ng-repeat="item in $ctrl.question_status_data.data track by $index" ng-click="$ctrl.change_question($index)">
+          {{$index + 1}}
+        </span>
+      </div>
+    </div>
+    <div  layout="row" layout-align="center center">
+      <md-button class="md-raised md-primary" ng-click="$ctrl.submit_test()">Submit</md-button>
     </div>
   </div>
+
   <div flex-gt-xs="85"  layout="column" layout-align="top center" md-whiteframe="2" style="position: relative">
     <div id="animated_timer" animated-timer="{{$ctrl.fetched_questions[$ctrl.current_question_index.data].short_choice_question_id}}"></div>
     <!-- <p ng-click="$ctrl.show_data();" >See the data at Attemp controller</p> -->
