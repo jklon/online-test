@@ -116,7 +116,9 @@ angular.
             console.log("Starting the test now");
             self.reset_timer();
             $("#attempt-overlay").addClass("hidden");
-          })     
+          })    
+
+          DiagnosticTest.setData('current_question_index',{data:0})
         }
 
         self.submit_test = function(){

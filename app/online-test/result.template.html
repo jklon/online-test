@@ -553,7 +553,7 @@
     </md-card>
   </div>
   <div layout-padding layout="row" layout-align="center center" md-whiteframe="2">
-    <md-button class="md-raised md-primary" href="#!/online-test/attempt">Improve me</md-button>
+    <md-button ng-if="$ctrl.next_test_personalized" class="md-raised md-primary" ng-click="$ctrl.start_personalized_test()">Improve me</md-button>
     <md-button class="md-raised" href="#!/online-test/">Start test</md-button>
   </div>
 </md-content>

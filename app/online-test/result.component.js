@@ -7,7 +7,12 @@ angular.
     templateUrl: 'online-test/result.template.html',
     controller: ['DiagnosticTest', '$scope', '$location','$mdDialog',
       function ResultController(DiagnosticTest, $scope, $location,$mdDialog) {        
+        console.log("This is results page")
         this.diagnostic_test_result = DiagnosticTest.getData('diagnostic_test_result')
+        if (this.diagnostic_test_result == undefined){
+          $location.url("/online-test/")
+        }
+        this.next_test_personalized = this.diagnostic_test_result.personalized_test_remaining > 0 ? true : false
         if (!this.diagnostic_test_result){
           $location.url("/online-test/")
         }
@@ -159,6 +164,7 @@ angular.
         });
 
         this.start_personalized_test = function(){
+          DiagnosticTest.setData('personalized', {data:true})
           $location.url('/online-test/attempt')
         }
       }
