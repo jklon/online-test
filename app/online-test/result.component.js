@@ -61,46 +61,71 @@ angular.
             return label_array;
             // return array;
           };
+        var starts_zero = {
+            ticks: {
+                beginAtZero:true
+            }
+        };
         //Difficulty Breakup Graph section
         // $scope.colors = ['#f44242', '#42f4f1', '#40E0D0'];
         // $scope.labels = ['Total', 'Easy', 'Medium', 'Tough'];
-        // $scope.series = ['Correct', 'Total'];
-
+        // $scope.series = ['Total', 'Correct'];
         // $scope.data = [
         //   [20, 10, 5, 5],
         //   [10, 4, 2, 3]
         // ]; 
+        // $scope.difficulty_options = {
+        //   scales: {
+        //       xAxes: [starts_zero],
+        //       yAxes: [starts_zero]
+        //   }
+        // };
+        // $scope.datasetOverride = {
+        //   label: '# of Votes'
+        // }
         // //Correct Pie chart
         // $scope.attempt_colors = ['#ff8e72', '#f44242', '#42f4f1'];
         //   $scope.attempt_labels = ["Answered Correctly", "Answered incorrectly","Unattempted"];
         //   $scope.attempt_data = [6, 3,1];
         // //Topicwise Analysis Graph section
+
+
         // $scope.topicwise_colors = ['#f4a142']
         // $scope.topicwise_labels = ['Topic1', 'Topic2', 'Topic3', 'Topic4'];
-        // $scope.topicwise_series = ['Correct'];
-
+        // $scope.topicwise_series = ['Score'];
         // $scope.topicwise_data = [
         //   [10, 4, 2, 3]
         // ];  
+        // $scope.topic_options = {
+        //   scales: {
+        //       xAxes: [starts_zero]
+        //   }
+        // };
         // //time Analysis
-        // $scope.time_labels =["Chapter1", "Chapter2", "Chapter3", "Chapter4", "Chapter5", "Chapter6", "Chapter7"];
         // $scope.time_colors = ['#da35e0','#1d9e1a'];
-        // $scope.time_data = [
-        //   [65, 59, 90, 81, 56, 55, 40],
-        //   [28, 48, 40, 19, 96, 27, 100]
-        // ];
         // $scope.topic_time_labels =["Chapter1", "Chapter2", "Chapter3", "Chapter4", "Chapter5", "Chapter6", "Chapter7"];
         // $scope.topic_labels = $scope.createLabelArray($scope.topic_time_labels.length,"Topic");
         // $scope.topic_time_data = [
         //   [65, 59, 90, 81, 56, 55, 40],
         //   [28, 48, 40, 19, 96, 27, 100]
         // ];
+
+        // $scope.topic_time_series = ["Time Taken","Topic Score"];
+        // $scope.topic_time_options = {
+        //   scales: {
+        //   }
+        // };
         // $scope.chapter_time_labels =["Chapter1", "Chapter2", "Chapter3", "Chapter4", "Chapter5", "Chapter6", "Chapter7"];
         // $scope.chapter_time_data = [
         //   [65, 59, 90, 81, 56, 55, 40],
         //   [28, 48, 40, 19, 96, 27, 100]
         // ];
-        
+        // $scope.chapter_time_options = {
+        //   scales: {
+        //       xAxes: [starts_zero]
+        //   }
+        // };
+        // $scope.chapter_time_series = ["Time Taken","Chapter Score"];
         //Difficulty Breakup Graph section
         $scope.labels = Object.keys(result_json.difficulty_breakup);
         $scope.series = Object.keys(result_json.difficulty_breakup.total);
@@ -109,49 +134,71 @@ angular.
           Object.values(result_json.difficulty_breakup).map( function(el) { return el.total; }),
           Object.values(result_json.difficulty_breakup).map( function(el) { return el.correct; })
         ]; 
-        console.log($scope.labels);
-        console.log($scope.series);
-        console.log($scope.data);
+        $scope.difficulty_options = {
+          scales: {
+              xAxes: [starts_zero],
+              yAxes: [starts_zero]
+          }
+        };
         //Correct Pie chart
         $scope.attempt_colors = ['#ff8e72', '#f44242', '#42f4f1'];
           $scope.attempt_labels = ["Answered Correctly", "Answered incorrectly","Unattempted"];
           $scope.attempt_data = [result_json.difficulty_breakup.total.incorrect, 
           result_json.difficulty_breakup.total.correct,
           result_json.difficulty_breakup.total.unattempted ];
+
         //Topicwise Analysis Graph section
         $scope.topicwise_colors = ['#f4a142']
         var topics = Object.values(result_json.result.streams).map( function(el) { return el.second_topics; });
         $scope.topicwise_labels = Object.values(topics[0]).map( function(el) { return el.second_topic_name; });
-        $scope.topicwise_series = ['Correct'];
+        $scope.topicwise_series = ['Score'];
 
         $scope.topicwise_data = [
           Object.values(topics[0]).map( function(el) { return el.score; })
         ];  
-        //time Analysis
+        $scope.topic_options = {
+          scales: {
+              xAxes: [starts_zero]
+          }
+        };
+        //Topicwise time Analysis
         $scope.time_colors = ['#da35e0','#1d9e1a'];
         $scope.topic_time_labels =Object.values(result_json.result.second_topics).map( function(el) { return el.name; });
         $scope.topic_time_data = [
           Object.values(result_json.result.second_topics).map( function(el) { return el.average_time_spent; }),
           Object.values(result_json.result.second_topics).map( function(el) { return el.average_score/100; })
         ];  
+        $scope.topic_time_series = ["Time Taken","Topic Score"];
+        $scope.topic_time_options = {
+          scales: {
+          }
+        };
         $scope.topic_labels = $scope.createLabelArray($scope.topic_time_labels.length,"Topic");
+
+        //Chapterwise Time Analysis
         $scope.chapter_time_labels =Object.values(result_json.result.chapters).map( function(el) { return $scope.stringWrapper(el.name); });
         $scope.chapter_time_data = [
           Object.values(result_json.result.second_topics).map( function(el) { return el.average_time_spent; }),
           Object.values(result_json.result.second_topics).map( function(el) { return el.average_score/100; })
         ]; 
-          $scope.showDifficultyInfo = function(ev) {
-            $mdDialog.show(
-              $mdDialog.alert()
-                .clickOutsideToClose(true)
-                .title('This is an alert title')
-                .textContent('You can specify some description text in here.')
-                .ariaLabel('Alert Dialog Demo')
-                .ok('Got it!')
-                .targetEvent(ev)
-            );
-
-          };
+        $scope.chapter_time_options = {
+          scales: {
+              xAxes: [starts_zero]
+          }
+        };
+        $scope.chapter_time_series = ["Time Taken","Chapter Score"];
+        
+        //Question analysis
+        $scope.question_answers = [];
+        console.log(this.diagnostic_test_result.question_analysis);
+        for (var key in this.diagnostic_test_result.question_analysis) {
+          if (this.diagnostic_test_result.question_analysis.hasOwnProperty(key)) {
+            var question = this.diagnostic_test_result.question_analysis[key];
+            $scope.question_answers.push({name:question.index,name:question.index,name:question.index}); 
+          }
+        }
+        console.log($scope.question_answers);
+        $scope.gridOptions = { data: 'question_answers' };
         $(document).ready(function(){
           $("#sidebar-wrapper").html("").html('<md-button type="submit" class="md-raised md-primary" id="test_retake_btn" >Start</md-button>')
           $("#test_retake_btn").on("click", function(){
