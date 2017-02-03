@@ -34,9 +34,20 @@
 
           <div  ng-if="$ctrl.standard_form_class" >
             <md-input-container class="md-block" flex-gt-sm>
+              <label>Subject</label>
+              <md-select ng-model="$ctrl.subject_id" required>
+                <md-option ng-repeat="subject in $ctrl.subjects[$ctrl.standard_id]" value="{{subject.subject_id}}">
+                  {{subject.name}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+
+          <div  ng-if="$ctrl.standard_form_class" >
+            <md-input-container class="md-block" flex-gt-sm>
               <label>Stream</label>
-              <md-select ng-model="$ctrl.stream" required>
-                <md-option ng-repeat="stream in $ctrl.streams[$ctrl.standard_id]" value="{{stream.id}}">
+              <md-select ng-model="$ctrl.stream_id" required>
+                <md-option ng-repeat="stream in $ctrl.streams[$ctrl.subject_id]" value="{{stream.stream_id}}">
                   {{stream.name}}
                 </md-option>
               </md-select>

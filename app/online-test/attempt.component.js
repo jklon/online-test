@@ -20,7 +20,7 @@ angular.
         if (DiagnosticTest.getData('personalized')){
           var test_params = {
             standard_id: DiagnosticTest.getData('standard_id'),
-            subject_id: DiagnosticTest.getData('standard_id'),
+            subject_id: DiagnosticTest.getData('subject_id'),
             personalization_type:1,
             diagnostic_test_id:1,
             number:DiagnosticTest.getData('user').number
@@ -28,7 +28,7 @@ angular.
         } else {
           var test_params = {
             standard_id: DiagnosticTest.getData('standard_id'),
-            subject_id: DiagnosticTest.getData('standard_id'),
+            subject_id: DiagnosticTest.getData('subject_id'),
             stream_id: DiagnosticTest.getData('stream_id'),
           }
         }

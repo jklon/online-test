@@ -35,13 +35,21 @@ angular.
                 // })
                 self.standards = data.standards
                 for (var key in data.standards){
-                  self.streams[data.standards[key].standard_id] = data.standards[key].streams
+                  self.subjects[data.standards[key].standard_id] = data.standards[key].subjects
                 }
+                for (var key in self.subjects){
+                  for (var key2 in self.subjects[key]){
+                    self.streams[self.subjects[key][key2].subject_id] = self.subjects[key][key2].streams
+                  }
+                }
+                console.log(self.subjects)
+                console.log(self.streams)
                 self.standard_form_class = true
               }
             })
           } else if (self.standard_id) {
             DiagnosticTest.setData('standard_id', {data:self.standard_id})
+            DiagnosticTest.setData('subject_id', {data:self.subject_id})
             DiagnosticTest.setData('stream_id', {data:self.stream_id})
             DiagnosticTest.attempt_ready(true);
             $location.url('/online-test/attempt')
@@ -56,14 +64,14 @@ angular.
         self.user = {
           first_name:'Neeraj',
           last_name: 'Resonance-PCCP',
-          number:9740644522,
+          number:9879879879,
           email: '9740644522@resopccp.com'
         }
         self.streams = {}
-        self.standard_id = null
-        self.stream_id = null
-        self.subject_id = '';
-        
+        self.subjects = {}
+        self.standard_id = null;
+        self.stream_id = null;
+        self.subject_id = null;        
 
         
         // $(document).ready(function(){
