@@ -17,6 +17,7 @@ angular.
         'question_status_data' : {data:[]},
         'standard_id' : {},
         'stream_id'   : {},
+        'subject_id'  : {},
         'user': {},
         'diagnostic_test_result':{},
         'personalized':{},
