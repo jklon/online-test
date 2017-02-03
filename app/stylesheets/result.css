@@ -8,6 +8,16 @@
   padding: 10px;
   margin: 15px 0; 
 }
+.stream{
+  width: 350px;
+
+}
+.chapter_holder{
+  border: 1px solid black;
+}
+.chapter{
+  width: 300px;
+}
 .small {
     width: 450px;
     border: 1px solid black;
@@ -33,4 +43,9 @@
     display: -webkit-flex; /* Safari */
     display: flex;
     flex: auto;
+}
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 400px; 
+    height: 300px
 }
