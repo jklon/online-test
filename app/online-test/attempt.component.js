@@ -16,8 +16,8 @@ angular.
         self.timer_height = 20;
         self.show_all_questions = false;
         self.question_status_data = DiagnosticTest.getAllData().question_status_data
-        self.test_start_text = "Hi " + (DiagnosticTest.getData('user') ? DiagnosticTest.getData('user').first_name : "") + ", We have got a personalized test for you designed to improve your week areas based on your last attempt here :)"  
-        if (DiagnosticTest.getData('personalized')){
+        self.test_start_text = "Hi " + (DiagnosticTest.getData('user') ? DiagnosticTest.getData('user').first_name : "") + ", I am Doctor Math. I have designed this test to diagnose your weak and strong topics. :)"  
+        if (DiagnosticTest.getData('personalized')>0){
           var test_params = {
             standard_id: DiagnosticTest.getData('standard_id'),
             subject_id: DiagnosticTest.getData('subject_id'),

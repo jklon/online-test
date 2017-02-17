@@ -360,7 +360,22 @@
 
     </md-card>
   </div>
-
+    <md-card class="large" ng-show="$ctrl.next_test_personalized">
+      <md-toolbar >
+        <div class="md-toolbar-tools">
+          <h2 class="md-flex">Personalized Tests</h2>
+          <span flex=""></span>
+        </div>
+      </md-toolbar>
+      <md-card-title>
+      <span class="md-head">Your recent streamwise test was not perfect. We have some personalized tests based on each of your weak chapter.</span>
+      </md-card-title>
+      
+    </md-card>
+      <div layout-padding layout="row" layout-align="center center" md-whiteframe="2">
+    <md-button ng-if="$ctrl.next_test_personalized" class="md-raised md-primary" ng-click="$ctrl.start_personalized_test()">Improve me</md-button>
+    <md-button class="md-raised" href="#!/online-test/">Start test</md-button>
+  </div>
   <md-card  md-theme-watch="" class="small">
     <md-toolbar >
       <div class="md-toolbar-tools">
@@ -544,10 +559,7 @@
       </md-card-content>
     </md-card>
   </div>
-  <div layout-padding layout="row" layout-align="center center" md-whiteframe="2">
-    <md-button ng-if="$ctrl.next_test_personalized" class="md-raised md-primary" ng-click="$ctrl.start_personalized_test()">Improve me</md-button>
-    <md-button class="md-raised" href="#!/online-test/">Start test</md-button>
-  </div>
+
 </md-content>
 <!--   <md-card md-theme-watch="" >
     <md-toolbar >

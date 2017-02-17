@@ -24,8 +24,10 @@ angular.
               number: self.user.number
             }, function(data){
               if (data.personalized.count > 0){
+                console.log(data.personalized.count);
                 DiagnosticTest.setData('standard_id', {data:data.standards.standard_id});
-                DiagnosticTest.setData('personalized', {data:true})
+                DiagnosticTest.setData('personalized', {data:data.personalized.count});
+                
                 DiagnosticTest.attempt_ready(true);
                 $location.url('/online-test/attempt')
               } else {
